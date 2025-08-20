@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (el.subtitleSection) {
                     el.subtitleSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
-            }, 300);
+            }, 1300);
         });
     }
 
