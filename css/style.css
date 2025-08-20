@@ -326,10 +326,10 @@ body {
     transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.9);
     color: #BEBEBE;
-    padding: 30px;
+    padding: 20px 30px; /* 减少上下内边距，让高度更低 */
     border-radius: 10px;
     text-align: center;
-    max-width: 600px;
+    max-width: 2000px;
     opacity: 0;
     animation: fadeInUp 1s ease 0.5s both;
     border: 2px solid #BEBEBE;
@@ -337,8 +337,8 @@ body {
 
 .final-message p {
     font-size: 1.2rem;
-    margin-bottom: 10px;
-    line-height: 1.8;
+    margin-bottom: 8px; /* 减少段落间距 */
+    line-height: 1.5; /* 减少行高，让高度更低 */
     font-weight: bold;
 }
 
@@ -550,14 +550,14 @@ body {
 /* 新闻页面中的矢量图样式 */
 .news-vector-image {
     position: absolute;
-    bottom: 75px;
-    right: 950px;
+    bottom: 50px;
+    right: 850px;
     z-index: 10;
 }
 
 /* 包页面矢量图特殊位置调整 */
 .news-section#newsBaoSection .news-vector-image {
-    bottom: 150px;
+    bottom: 75px;
 }
 
 .vector-image-news {
@@ -3027,7 +3027,7 @@ body {
 
 /* 第二章节过渡页面的三个新文本框样式 */
 .text-box-chapter2-part1 {
-    top: 133px;
+    top: 130px; /* 调整位置，让第一个文本框更容易被看到 */
     left: 53%; /* 稍微向左调整，给文字更多空间 */
     width: 800px; /* 增加宽度 */
     height: 280px; /* 增加高度以容纳更多文字 */
@@ -3041,16 +3041,15 @@ body {
         inset 0 1px 0 rgba(255, 255, 255, 0.1),
         0 0 0 1px rgba(255, 255, 255, 0.05); /* 白色边框光晕 */
     border: 1px solid rgba(255, 255, 255, 0.15);
-    transition: all 0.8s ease;
     position: absolute;
     z-index: 3;
-    /* 继承通用text-box的初始状态 */
-    opacity: 0; /* 初始状态隐藏 */
-    transform: translateY(30px); /* 初始状态向下偏移 */
+    /* 直接显示，不需要动画 */
+    opacity: 1; /* 直接显示 */
+    transform: translateY(0); /* 直接显示在正确位置 */
 }
 
 .text-box-chapter2-part2 {
-    top: 440px; /* 调整位置，与第一个文本框有适当间距 */
+    top: 430px; /* 调整位置，与第一个文本框有适当间距 */
     left: 53%; /* 与第一个文本框对齐 */
     width: 800px; /* 与第一个文本框保持一致 */
     height: 220px; /* 增加高度 */
@@ -3064,16 +3063,15 @@ body {
         inset 0 1px 0 rgba(255, 255, 255, 0.1),
         0 0 0 1px rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    transition: all 0.8s ease;
     position: absolute;
     z-index: 3;
-    /* 继承通用text-box的初始状态 */
-    opacity: 0; /* 初始状态隐藏 */
-    transform: translateY(30px); /* 初始状态向下偏移 */
+    /* 直接显示，不需要动画 */
+    opacity: 1; /* 直接显示 */
+    transform: translateY(0); /* 直接显示在正确位置 */
 }
 
 .text-box-chapter2-part3 {
-    top: 685px; /* 调整位置，与第二个文本框有适当间距 */
+    top: 680px; /* 调整位置，与第二个文本框有适当间距 */
     left: 53%; /* 与前面两个文本框对齐 */
     width: 800px; /* 与前面两个文本框保持一致 */
     height: 240px; /* 增加高度 */
@@ -3087,12 +3085,11 @@ body {
         inset 0 1px 0 rgba(255, 255, 255, 0.1),
         0 0 0 1px rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    transition: all 0.8s ease;
     position: absolute;
     z-index: 3;
-    /* 继承通用text-box的初始状态 */
-    opacity: 0; /* 初始状态隐藏 */
-    transform: translateY(30px); /* 初始状态向下偏移 */
+    /* 直接显示，不需要动画 */
+    opacity: 1; /* 直接显示 */
+    transform: translateY(0); /* 直接显示在正确位置 */
 }
 
 /* 三个新文本框的悬停效果 */
@@ -3133,6 +3130,7 @@ body {
 .text-box-chapter2-part3.show {
     opacity: 1;
     transform: translateY(0);
+    transition: all 0.8s ease; /* 添加过渡动画 */
 }
 
 /* 三个新文本框的段落样式 */
@@ -3184,7 +3182,7 @@ body {
 
 /* 新闻页面文本框样式 */
 .news-text-box {
-    background: rgba(126, 125, 125, 0.9);
+    background: rgba(196, 195, 195, 0.9);
     border-radius: 15px;
     padding: 25px;
     margin: 20px;
@@ -3335,7 +3333,7 @@ body {
 
 /* 调整Flourish图表位置 */
 #customBackgroundSection .flourish-embed {
-    margin-left: 42px; /* 向右移动50px */
+    margin-left: 20px; /* 向左移动一点 */
 }
 
 /* 态度分析文本框样式 - 与之前文本框保持一致 */
@@ -3366,14 +3364,14 @@ body {
 
 /* 第二个文本框 - 中立态度 - 右上位置 */
 .attitude-text-box-2 {
-    top: 20%;
-    right: 10%;
+    top: 30%;
+    right: 15%;
 }
 
 /* 第三个文本框 - 积极态度 - 右下位置 */
 .attitude-text-box-3 {
     bottom: 20%;
-    right: 10%;
+    right: 15%;
 }
 
 /* 态度分析文本框位置调整 */
@@ -3384,23 +3382,16 @@ body {
     z-index: 15;
 }
 
-.attitude-text-box-2 {
-    position: absolute;
-    right: 5%; /* 页面右边 */
-    top: 5%; /* 右上位置 */
-    z-index: 15;
-}
-
 .attitude-text-box-3 {
     position: absolute;
-    right: 5%; /* 页面右边 */
+    right: 10%; /* 页面右边 */
     bottom: 15%; /* 右下位置 */
     z-index: 15;
 }
 
 /* 情感倾向背景页面样式 */
 #emotionTendencySection {
-    background-image: url('../assets/chapter2（情感倾向）.png');
+    background-color: #f1f1f1;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -3443,12 +3434,12 @@ body {
 /* 价格具体图样式 */
 .price-detail-image {
     position: absolute;
-    bottom: 20%; /* 偏下位置 */
+    bottom: 8%; /* 偏下位置 */
     left: 50%;
     transform: translateX(-50%);
-    width: 60vw; /* 设置为视口宽度的60% */
+    width: 80vw; /* 设置为视口宽度的80%，调大一点 */
     height: auto; /* 高度自适应，保持比例 */
-    max-width: 800px; /* 最大宽度限制 */
+    max-width: 1000px; /* 最大宽度限制，调大一点 */
     z-index: 10;
     object-fit: contain; /* 保持图片比例 */
 }
@@ -3518,21 +3509,29 @@ body {
     border-radius: 12px;
 }
 
+/* 切换按钮容器样式 */
+.chart-switch-buttons {
+    position: absolute;
+    bottom: 120px; /* 改为左下角 */
+    left: 260px; /* 改为左侧 */
+    z-index: 25;
+    display: flex;
+    gap: 20px; /* 增加按钮之间的间距 */
+}
+
 /* 切换按钮样式 */
 .chart-switch-button {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    z-index: 25;
     background: rgba(255, 255, 255, 0.9);
-    border: 2px solid rgba(0, 0, 0, 0.3);
-    border-radius: 25px;
-    padding: 12px 24px;
+    border: 3px solid rgba(0, 0, 0, 0.3); /* 更粗的边框 */
+    border-radius: 30px; /* 更大的圆角 */
+    padding: 18px 35px; /* 更大的内边距 */
     cursor: pointer;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    min-width: 140px; /* 最小宽度 */
+    text-align: center; /* 文字居中 */
 }
 
 .chart-switch-button:hover {
@@ -3541,9 +3540,21 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* 活跃状态按钮样式 */
+.chart-switch-button.active {
+    background: rgba(0, 0, 0, 0.9); /* 黑色背景 */
+    color: white;
+    border-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.chart-switch-button.active .button-text {
+    color: white; /* 活跃状态下的文字颜色 */
+}
+
 .button-text {
     font-family: 'SimSun', '宋体', serif;
-    font-size: 16px;
+    font-size: 18px; /* 更大的字体 */
     font-weight: bold;
     color: #333;
     user-select: none;
@@ -3592,7 +3603,7 @@ body {
 /* 第三幕照片悬停微动效果 */
 .chapter3-photo:hover {
     transform: scale(1.05) translateY(-5px);
-    filter: brightness(1.1);
+    /* 移除亮度滤镜，保持原始照片效果 */
 }
 
 /* 第三幕照片特定定位样式 */
@@ -3720,28 +3731,30 @@ body {
 
 
 
-/* 返回按钮 - 玻璃特效 */
+/* 返回按钮 - 更显眼的样式 */
 .back-button {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    padding: 15px 25px;
-    border-radius: 20px;
+    top: 30px;
+    left: 30px;
+    background: rgba(255, 255, 255, 0.9); /* 更不透明的背景 */
+    color: #333; /* 深色文字，更易读 */
+    padding: 25px 40px; /* 更大的内边距 */
+    border-radius: 30px; /* 更大的圆角 */
     cursor: pointer;
-    font-size: 16px;
-    font-weight: 500;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 22px; /* 更大的字体 */
+    font-weight: bold; /* 更粗的字体 */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 3px solid rgba(0, 0, 0, 0.2); /* 更粗的边框 */
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        0 10px 30px rgba(0, 0, 0, 0.3), /* 更明显的阴影 */
+        0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
     z-index: 10002;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: none; /* 移除文字阴影 */
     overflow: hidden;
+    min-width: 150px; /* 更大的最小宽度 */
+    text-align: center; /* 文字居中 */
 }
 
 .back-button::before {
@@ -3761,13 +3774,13 @@ body {
 }
 
 .back-button:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: translateY(-3px) scale(1.02);
+    background: rgba(255, 255, 255, 1); /* 完全不透明的白色背景 */
+    transform: translateY(-5px) scale(1.05); /* 更大的悬停效果 */
     box-shadow: 
-        0 15px 40px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.3);
-    color: #fff;
+        0 20px 40px rgba(0, 0, 0, 0.4), /* 更明显的悬停阴影 */
+        0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 0, 0, 0.4); /* 更深的边框 */
+    color: #000; /* 悬停时黑色文字 */
 }
 
 .back-button:hover::before {
@@ -3775,10 +3788,11 @@ body {
 }
 
 .back-button:active {
-    transform: translateY(-1px) scale(0.98);
+    transform: translateY(-2px) scale(0.98);
     box-shadow: 
-        0 8px 25px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        0 15px 30px rgba(0, 0, 0, 0.3),
+        0 8px 15px rgba(0, 0, 0, 0.2);
+    background: rgba(240, 240, 240, 1); /* 点击时的背景色 */
 }
 
 /* 自定义背景内容 */
@@ -3857,6 +3871,69 @@ body {
     font-weight: bold;
     color: #333;
     z-index: 30;
+}
+
+/* 语录文本框样式 */
+.quote-text-box {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 15px 70px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: none;
+    z-index: 20;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+    max-width: 600px;
+    min-width: 400px;
+}
+
+.quote-text-box p {
+    font-family: 'KaiTi', '楷体', serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin: 8px 0;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.quote-author {
+    font-size: 32px !important;
+    color: #666 !important;
+    margin-top: 15px !important;
+    text-align: right !important;
+}
+
+/* 第一个文本框位置 - 右下角 */
+.quote-text-box-1 {
+    bottom: 15%;
+    right: 10%;
+    max-width: 700px;
+    min-width: 500px;
+}
+
+/* 第二个文本框位置 - 左下角 */
+.quote-text-box-2 {
+    bottom: 20%;
+    left: 10%;
+    /* 第二个文本框特殊样式 - 更细长 */
+    padding: 12px 80px;
+    max-width: 700px;
+    min-width: 500px;
+    /* 逆时针旋转10度，保持位置不变 */
+    transform: rotate(-10deg);
+    transform-origin: center center; /* 以中心为旋转点 */
+}
+
+/* 文本框初始状态 - 隐藏 */
+.quote-text-box {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
 }
 
 /* 中间底部来源信息样式 */
@@ -3961,7 +4038,7 @@ body {
 
 .she-text-box p {
     font-family: 'SimSun', '宋体', serif;
-    font-size: 50px;
+    font-size: 55px;
     font-weight: bold;
     color: #333;
     margin: 0;
@@ -3977,8 +4054,8 @@ body {
 
 /* 第二个文本框位置 - 左下角 */
 .she-text-box-2 {
-    bottom: 15%;
-    right: 10%;
+    bottom: 12%;
+    right: 12%;
 }
 
 /* 文本框浮现效果 */
@@ -4076,8 +4153,7 @@ body {
     max-width: 800px;   /* 增大最大宽度 */
     max-height: 75vh;   /* 增大最大高度 */
     object-fit: contain;
-    border-radius: 30px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    /* 移除玻璃状效果，只保留原始照片 */
     transition: all 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: fixed;    /* 改为fixed定位，独立于父容器 */
     z-index: 5;         /* 降低z-index，确保在文本框之下 */
@@ -5233,8 +5309,7 @@ body {
     transition: transform 0.3s ease;
     cursor: pointer;
     z-index: 10;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    /* 移除玻璃状效果，只保留原始照片 */
 }
 
 .chapter3-photos-section .fullscreen-vertical-gallery {
@@ -6058,14 +6133,15 @@ body {
 .chapter3-text-box {
     position: absolute;
     background-color: #eae9e6;
-    padding: 15px 20px;
+    padding: 20px 25px; /* 增加内边距 */
     border-radius: 15px;
     font-family: 'KaiTi', '楷体', serif;
     font-size: 25px;
     line-height: 1.4;
     color: #333;
-    max-width: 600px;
-    min-width: 500px;
+    width: auto; /* 宽度自适应 */
+    max-width: 800px; /* 增加最大宽度，适应新的文字内容 */
+    min-width: 600px; /* 增加最小宽度 */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     z-index: 20;
     opacity: 0;
@@ -6074,21 +6150,27 @@ body {
 }
 
 .chapter3-text-box p {
-    margin: 0;
+    margin: 0 0 8px 0; /* 添加底部间距，让两个段落有适当分隔 */
     text-align: justify;
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
+    white-space: normal; /* 允许文字换行 */
+    line-height: 1.6; /* 增加行高，让文字更易读 */
+}
+
+.chapter3-text-box p:last-child {
+    margin-bottom: 0; /* 最后一个段落不需要底部间距 */
 }
 
 .chapter3-text-box-1 {
     top: 40%;
-    left: 60%;
+    left: 25%; /* 向左移动 */
 }
 
 .chapter3-text-box-2 {
     top: 75%;
-    right: 30%;
+    right: 45%;
 }
 
 /* 当页面进入视口时的动画效果 */
@@ -6104,3 +6186,307 @@ body {
     transition-delay: 0.6s;
 }
 
+/* 新增的横着文本框样式 */
+.horizontal-quote-box {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    z-index: 15;
+    max-width: 800px;
+    min-width: 500px;
+}
+
+.horizontal-quote-box p {
+    font-family: 'KaiTi', '楷体', serif;
+    font-size: 20px;
+    color: #333;
+    margin: 8px 0;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.horizontal-quote-box .quote-author {
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
+    text-align: right;
+    font-style: italic;
+}
+
+/* 第一个横着文本框位置 */
+.horizontal-quote-box-1 {
+    top: 35%;
+    left: 10%;
+}
+
+/* 第二个横着文本框位置 */
+.horizontal-quote-box-2 {
+    top: 73%; /* 调整到中间偏上位置，与第二张照片对应 */
+    right: 15%; /* 稍微调整右边距 */
+}
+
+/* Ending页面照片样式 */
+.ending-photos-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    transition: all 1s ease; /* 添加过渡效果 */
+}
+
+.ending-photo {
+    position: absolute;
+    width: 120px; /* 照片宽度 */
+    height: 120px; /* 照片高度 */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.ending-photo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.ending-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 照片随机分散位置 */
+.ending-photo-1 {
+    top: 20%;
+    left: 20%;
+}
+
+.ending-photo-2 {
+    top: 15%;
+    left: 75%;
+}
+
+.ending-photo-3 {
+    top: 35%;
+    left: 10%;
+}
+
+.ending-photo-4 {
+    top: 25%;
+    left: 60%;
+}
+
+.ending-photo-5 {
+    top: 55%;
+    left: 80%;
+}
+
+.ending-photo-6 {
+    top: 70%;
+    left: 15%;
+}
+
+.ending-photo-7 {
+    top: 80%;
+    left: 70%;
+}
+
+.ending-photo-8 {
+    top: 65%;
+    left: 45%;
+}
+
+/* 新背景图片样式 */
+.ending-new-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    transform: scale(1.1); /* 初始稍微放大，切换时缩放到正常大小 */
+    transition: all 2s ease; /* 同时过渡透明度和缩放 */
+    z-index: 15; /* 提高z-index，确保在照片之上 */
+    overflow: hidden;
+}
+
+.ending-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* 移除不再使用的show类 */
+
+/* 照片消失动画 */
+.ending-photo {
+    transition: all 1s ease;
+}
+
+.ending-photo.fade-out {
+    opacity: 0;
+    transform: scale(0.5) rotate(180deg);
+}
+
+/* Ending按钮样式 */
+.ending-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 20px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border: 3px solid rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 20;
+    min-width: 150px;
+    text-align: center;
+}
+
+.ending-button:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.ending-button:active {
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+.ending-button.hide {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    pointer-events: none;
+}
+
+/* 移除点击提示样式，因为现在有按钮了 */
+.ending-section {
+    cursor: default;
+}
+
+/* 参考文献样式 */
+.references-section {
+    margin-top: 60px;
+    padding: 40px;
+}
+
+.references-section h2 {
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 15px;
+}
+
+.reference-category {
+    margin-bottom: 35px;
+}
+
+.reference-category h3 {
+    color: #007bff;
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-left: 4px solid #007bff;
+    padding-left: 15px;
+}
+
+.reference-list {
+    margin-left: 20px;
+}
+
+.reference-item {
+    display: flex;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    align-items: flex-start;
+}
+
+.reference-number {
+    color: #007bff;
+    font-weight: bold;
+    margin-right: 15px;
+    min-width: 30px;
+    flex-shrink: 0;
+}
+
+.reference-content {
+    color: #555;
+    font-size: 16px;
+    text-align: justify;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .references-section {
+        padding: 20px;
+        margin-top: 40px;
+    }
+    
+    .references-section h2 {
+        font-size: 24px;
+    }
+    
+    .reference-category h3 {
+        font-size: 20px;
+    }
+    
+    .reference-content {
+        font-size: 14px;
+    }
+    
+    .reference-list {
+        margin-left: 10px;
+    }
+}
+
+/* 校院标样式 */
+.school-logo-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    padding: 30px;
+}
+
+.school-logo {
+    max-width: 300px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.school-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .school-logo {
+        max-width: 250px;
+        max-height: 150px;
+    }
+    
+    .school-logo-section {
+        padding: 20px;
+        margin-top: 30px;
+    }
+}

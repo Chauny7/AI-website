@@ -241,20 +241,27 @@ document.addEventListener('DOMContentLoaded', function () {
             el.hero.classList.add('changed');
             // 修复：使用CSS类来控制背景图片切换，而不是直接设置style
             // 移除直接设置backgroundImage的代码，让CSS类来处理
+            
+            // 照片切换后多停留两秒（总共2.3秒）再去下一个界面
             setTimeout(() => {
                 // 先滚动到字幕封面区域，停留一段时间后再进入图片章节（由用户滚动触发）
                 if (el.subtitleSection) {
                     el.subtitleSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
-            }, 1300);
+            }, 1300); // 从300毫秒改为2300毫秒（2.3秒）
         });
     }
 
     // 保留一个用于"进入视口加 .in-view"的 Observer，并删除与滚动方向相关的判断
     const fadeObserver = new IntersectionObserver((entries)=>{
         entries.forEach(entry=>{
-            if (entry.isIntersecting) entry.target.classList.add('in-view');
-            else entry.target.classList.remove('in-view');
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                console.log('页面进入视口，添加in-view类:', entry.target.id);
+            } else {
+                entry.target.classList.remove('in-view');
+                console.log('页面离开视口，移除in-view类:', entry.target.id);
+            }
         });
     }, { threshold: 0.1 });
 
@@ -273,8 +280,17 @@ document.addEventListener('DOMContentLoaded', function () {
           document.getElementById('chapter3CustomCoverSection2'), // 添加第三幕自定义封面页面2
           document.getElementById('chapter3CustomCoverSection3'), // 添加第三幕自定义封面页面3
           document.getElementById('endingCustomCoverSection'), // 添加结束前自定义背景页面
-          document.getElementById('ending') // 添加ending页面
-     ].forEach(n => { if (n) fadeObserver.observe(n); });
+          document.getElementById('ending'), // 添加ending页面
+         el.newsLiuDehuaSection, // 添加刘德华新闻页面
+         el.newsBaoSection // 添加包新闻页面
+     ].forEach(n => { 
+         if (n) {
+             fadeObserver.observe(n);
+             console.log('观察器已添加页面:', n.id);
+         } else {
+             console.log('页面元素未找到');
+         }
+     });
 
     // 单独的字幕浮现（如需）
     const subtitleObserver = new IntersectionObserver((entries)=>{
@@ -554,12 +570,13 @@ document.addEventListener('DOMContentLoaded', function () {
         // 第四章字幕（使用更具体的选择器）
         if (el.chapter4DynamicSubtitle && el.chapter4SubtitleText) {
             const T4 = [
-                '未来已来，AI复活技术将如何改变我们的世界？',
-                '数字永生，是技术的奇迹还是伦理的挑战？',
-                '在虚拟与现实之间，我们找到了新的存在方式',
-                '技术的温柔，在于它让我们重新思考生命的意义',
-                '边界在哪里？我们需要为AI复活设定怎样的规则？',
-                '未来已来，让我们以智慧和温情拥抱这个新时代'
+                '屏幕熄灭，光点消散。',
+                '逝者未归，记忆犹在。',
+                'AI能模拟声音，却无法复制灵魂。',
+                '它带来慰藉，也带来疑问。',
+                '技术是一盏灯，但不该越过生命的边界。',
+                '我们需要守护记忆，而不是依赖幻象。',
+                '告别，或许才是最深的怀念。'
             ];
             const txt = T4[clamp(chapter4CurrentIndex - 1, 0, T4.length - 1)];
             el.chapter4DynamicSubtitle.classList.remove('fade-out');
@@ -872,13 +889,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     entry.target.classList.add('in-view');
                 }
             } else {
-                // 页面离开视口后，隐藏所有文本框
+                // 页面离开视口后的处理
                 if (entry.target.id === 'chapter3CustomCoverSection2') {
                     entry.target.classList.remove('in-view');
                 } else if (entry.target.id === 'customBackgroundSectionNews') {
                     entry.target.classList.remove('in-view');
                 } else if (entry.target.id === 'sheIsNotSheSection') {
                     entry.target.classList.remove('in-view');
+                } else if (entry.target.id === 'chapter2TransitionSection') {
+                    // 第二章节过渡页面的文本框一旦显示就保持，不隐藏
+                    // 不调用 hideAllTextBoxes()
                 } else {
                     hideAllTextBoxes();
                 }
@@ -886,7 +906,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, { 
         threshold: 0.3, // 当30%的页面可见时触发
-        rootMargin: '0px 0px -100px 0px' // 稍微提前触发
+        rootMargin: '0px 0px -50px 0px' // 适中的负边距
     });
     
     // 观察过渡页面
@@ -1024,12 +1044,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const boxes = section.querySelectorAll('.text-box');
         const customTextContainer = section.querySelector('.custom-text-container');
         
+        console.log('showTextBoxesSequentially called for section:', section.id);
+        console.log('Found text boxes:', boxes.length);
+        
         if (boxes.length > 0) {
             // 处理文本框的浮现
             boxes.forEach((box, index) => {
+                console.log('Showing text box', index, 'after', index * 800, 'ms');
                 setTimeout(() => {
                     box.classList.remove('hide');
                     box.classList.add('show');
+                    console.log('Text box', index, 'now has classes:', box.className);
                 }, index * 800); // 每个文本框间隔800ms出现，总共约2.4秒
             });
         } else if (customTextContainer) {
@@ -1042,10 +1067,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 隐藏所有文本框的函数
     function hideAllTextBoxes() {
+        // 隐藏通用文本框
         textBoxes.forEach(box => {
             box.classList.add('hide');
             box.classList.remove('show');
         });
+        
+        // 不隐藏第二章节过渡页面的文本框，因为它们应该保持显示
+        // const chapter2TextBoxes = document.querySelectorAll('#chapter2TransitionSection .text-box');
+        // chapter2TextBoxes.forEach(box => {
+        //     box.classList.add('hide');
+        //     box.classList.remove('show');
+        // });
     }
     
     // 重置文本框显示（可选：点击重置按钮时调用）
@@ -1542,17 +1575,37 @@ window.hideStaffPage = hideStaffPage;
 // 新闻页面交互函数
 function showLiuDehuaNews() {
     const floatingImage = document.getElementById('liuDehuaFloatingImage');
+    const quoteTextBox = document.querySelector('#newsLiuDehuaSection .quote-text-box-1');
+    
     if (floatingImage) {
         floatingImage.classList.add('show');
         // 照片浮现后保持显示，不自动消失
+    }
+    
+    // 文本框与图片一起出现
+    if (quoteTextBox) {
+        setTimeout(() => {
+            quoteTextBox.style.opacity = '1';
+            quoteTextBox.style.transform = 'translateY(0)';
+        }, 500); // 延迟500毫秒出现，与图片动画同步
     }
 }
 
 function showBaoNews() {
     const floatingImage = document.getElementById('baoFloatingImage');
+    const quoteTextBox = document.querySelector('#newsBaoSection .quote-text-box-2');
+    
     if (floatingImage) {
         floatingImage.classList.add('show');
         // 照片浮现后保持显示，不自动消失
+    }
+    
+    // 文本框与图片一起出现
+    if (quoteTextBox) {
+        setTimeout(() => {
+            quoteTextBox.style.opacity = '1';
+            quoteTextBox.style.transform = 'translateY(0)';
+        }, 500); // 延迟500毫秒出现，与图片动画同步
     }
 }
 
@@ -1564,17 +1617,15 @@ window.showBaoNews = showBaoNews;
 function initChapter3ChartSwitch() {
     const wordCloudChart = document.getElementById('wordCloudChart');
     const mapChart = document.getElementById('mapChart');
-    const pictogramChart = document.getElementById('pictogramChart');
     const section = document.getElementById('chapter3CustomCoverSection1');
-    const switchButton = document.getElementById('chartSwitchButton');
-    const buttonText = document.querySelector('.button-text');
+    const mapButton = document.getElementById('mapButton');
+    const wordCloudButton = document.getElementById('wordCloudButton');
     
-    if (!wordCloudChart || !mapChart || !pictogramChart || !section || !switchButton) {
+    if (!wordCloudChart || !mapChart || !section || !mapButton || !wordCloudButton) {
         console.log('图表切换初始化失败：缺少必要元素');
         return;
     }
     
-    let currentChartIndex = 0; // 0: map图表, 1: word-cloud图表, 2: pictogram图表
     let isTransitioning = false;
     
     console.log('图表切换功能初始化成功');
@@ -1585,46 +1636,60 @@ function initChapter3ChartSwitch() {
     mapChart.style.opacity = '1';
     wordCloudChart.style.display = 'none';
     wordCloudChart.style.opacity = '0';
-    pictogramChart.style.display = 'none';
-    pictogramChart.style.opacity = '0';
     
-    // 监听按钮点击事件
-    switchButton.addEventListener('click', function() {
+    // 设置初始按钮状态
+    mapButton.classList.add('active');
+    wordCloudButton.classList.remove('active');
+    
+    // 监听地图按钮点击事件
+    mapButton.addEventListener('click', function() {
         if (isTransitioning) {
             console.log('正在过渡中，忽略点击');
             return;
         }
         
-        console.log('按钮点击，当前图表索引:', currentChartIndex);
+        console.log('地图按钮点击，切换到地图视图');
+        switchToChart(mapChart, wordCloudChart, mapButton, wordCloudButton);
+    });
+    
+    // 监听词云按钮点击事件
+    wordCloudButton.addEventListener('click', function() {
+        if (isTransitioning) {
+            console.log('正在过渡中，忽略点击');
+            return;
+        }
         
-        // 设置过渡状态
+        console.log('词云按钮点击，切换到词云视图');
+        switchToChart(wordCloudChart, mapChart, wordCloudButton, mapButton);
+    });
+    
+    // 图表切换函数
+    function switchToChart(showChart, hideChart, activeButton, inactiveButton) {
         isTransitioning = true;
         
         // 隐藏当前图表
-        const currentChart = [mapChart, wordCloudChart, pictogramChart][currentChartIndex];
-        currentChart.style.opacity = '0';
+        hideChart.style.opacity = '0';
         
         setTimeout(() => {
-            currentChart.style.display = 'none';
+            hideChart.style.display = 'none';
             
-            // 切换到下一个图表
-            currentChartIndex = (currentChartIndex + 1) % 3;
-            const nextChart = [mapChart, wordCloudChart, pictogramChart][currentChartIndex];
-            nextChart.style.display = 'block';
+            // 显示目标图表
+            showChart.style.display = 'block';
             
             setTimeout(() => {
-                nextChart.style.opacity = '1';
+                showChart.style.opacity = '1';
+                
+                // 更新按钮状态
+                activeButton.classList.add('active');
+                inactiveButton.classList.remove('active');
+                
                 setTimeout(() => {
                     isTransitioning = false;
-                    console.log('切换到图表完成，当前索引:', currentChartIndex);
+                    console.log('图表切换完成');
                 }, 200);
             }, 50);
         }, 500);
-        
-        // 更新按钮文字
-        const chartNames = ['地图视图', '词云视图', '监管看法图'];
-        buttonText.textContent = '切换到' + chartNames[(currentChartIndex + 1) % 3];
-    });
+    }
 }
 
 // 页面加载完成后初始化图表切换功能
@@ -1640,6 +1705,133 @@ window.addEventListener('load', function() {
     console.log('页面完全加载完成，再次尝试初始化图表切换功能');
     initChapter3ChartSwitch();
 });
+
+// Ending页面交互功能
+function initEndingInteraction() {
+    console.log('开始初始化Ending页面交互功能...');
+    
+    const endingButton = document.getElementById('endingButton');
+    const photosContainer = document.getElementById('endingPhotosContainer');
+    const newBackground = document.getElementById('endingNewBackground');
+    
+    console.log('找到的元素:', {
+        endingButton: endingButton,
+        photosContainer: photosContainer,
+        newBackground: newBackground
+    });
+    
+    if (!endingButton) {
+        console.error('Ending页面交互初始化失败：找不到endingButton元素');
+        return;
+    }
+    
+    if (!photosContainer) {
+        console.error('Ending页面交互初始化失败：找不到endingPhotosContainer元素');
+        return;
+    }
+    
+    if (!newBackground) {
+        console.error('Ending页面交互初始化失败：找不到endingNewBackground元素');
+        return;
+    }
+    
+    console.log('Ending页面交互功能初始化成功');
+    
+    // 添加按钮点击事件监听器
+    endingButton.addEventListener('click', function(e) {
+        console.log('Ending按钮被点击！');
+        
+        // 防止重复触发
+        if (endingButton.classList.contains('transitioning')) {
+            console.log('正在过渡中，忽略点击');
+            return;
+        }
+        
+        console.log('Ending按钮被点击，开始照片消失和背景切换动画');
+        
+        // 标记正在过渡中
+        endingButton.classList.add('transitioning');
+        
+        // 隐藏按钮
+        endingButton.classList.add('hide');
+        
+        // 获取所有照片
+        const photos = photosContainer.querySelectorAll('.ending-photo');
+        console.log('找到照片数量:', photos.length);
+        
+        // 为每张照片添加消失动画类
+        photos.forEach((photo, index) => {
+            setTimeout(() => {
+                photo.classList.add('fade-out');
+                console.log(`照片 ${index + 1} 开始消失动画`);
+            }, index * 200); // 每张照片间隔200ms消失
+        });
+        
+        // 等待所有照片消失动画完成后，开始背景切换
+        setTimeout(() => {
+            console.log('开始背景切换阶段...');
+            
+            // 隐藏照片容器
+            photosContainer.style.opacity = '0';
+            photosContainer.style.transform = 'scale(0.8)';
+            console.log('照片容器隐藏完成');
+            
+            // 确保新背景元素存在且可见
+            console.log('新背景元素状态:', {
+                element: newBackground,
+                opacity: window.getComputedStyle(newBackground).opacity,
+                zIndex: window.getComputedStyle(newBackground).zIndex,
+                display: window.getComputedStyle(newBackground).display
+            });
+            
+            // 显示新背景 - 使用更明显的动画效果
+            newBackground.style.opacity = '1';
+            newBackground.style.transform = 'scale(1)';
+            console.log('新背景显示完成');
+            
+            // 检查新背景是否真的显示了
+            setTimeout(() => {
+                const finalOpacity = window.getComputedStyle(newBackground).opacity;
+                console.log('新背景最终透明度:', finalOpacity);
+                if (finalOpacity > 0) {
+                    console.log('背景切换成功！');
+                } else {
+                    console.log('背景切换失败，透明度仍为0');
+                }
+            }, 100);
+            
+            console.log('背景切换完成');
+        }, photos.length * 200 + 1000); // 等待所有照片消失 + 1秒
+    });
+    
+    // 测试按钮是否可点击
+    console.log('按钮样式:', window.getComputedStyle(endingButton));
+    console.log('按钮位置:', endingButton.getBoundingClientRect());
+}
+
+// 页面加载完成后初始化Ending页面交互功能
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM加载完成，开始初始化Ending页面交互功能');
+    setTimeout(() => {
+        initEndingInteraction();
+    }, 500);
+});
+
+// 也监听window的load事件作为备用
+window.addEventListener('load', function() {
+    console.log('页面完全加载完成，再次尝试初始化Ending页面交互功能');
+    setTimeout(() => {
+        initEndingInteraction();
+    }, 100);
+});
+
+// 立即尝试初始化（如果DOM已经准备好）
+if (document.readyState === 'loading') {
+    console.log('DOM还在加载中，等待DOMContentLoaded事件');
+} else {
+    console.log('DOM已经准备好，立即初始化');
+    initEndingInteraction();
+}
 
 
 
