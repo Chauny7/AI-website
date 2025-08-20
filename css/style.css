@@ -3933,6 +3933,67 @@ body {
     z-index: 30;
 }
 
+/* 她不是她页面样式 */
+#sheIsNotSheSection {
+    background-image: url('../assets/chapter2（她不是她）.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+/* 她不是她页面文本框样式 */
+.she-text-box {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+}
+
+.she-text-box p {
+    font-family: 'SimSun', '宋体', serif;
+    font-size: 50px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* 第一个文本框位置 - 右上角 */
+.she-text-box-1 {
+    top: 15%;
+    left: 10%;
+}
+
+/* 第二个文本框位置 - 左下角 */
+.she-text-box-2 {
+    bottom: 15%;
+    right: 10%;
+}
+
+/* 文本框浮现效果 */
+#sheIsNotSheSection.in-view .she-text-box-1 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+#sheIsNotSheSection.in-view .she-text-box-2 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
 #customCoverSection3 {
     background-image: url('../assets/chapter2（使用情景）.png');
     background-size: 100% 100%; /* 确保完全覆盖 */

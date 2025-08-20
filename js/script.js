@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
            '#emotionTendencySection', // 添加情感倾向背景页面
            '#customCoverSection3', // 添加自定义封面页面3
            '#chapter2TransitionSection',
+           '#sheIsNotSheSection', // 添加她不是她页面
            '#chapter3Section',
            '#chapter3PhotosSection', // 添加第三幕照片展示区
            '#chapter3CustomBackgroundSection', // 添加第三幕自定义背景页面
@@ -866,12 +867,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else if (sectionId === 'customBackgroundSectionNews') {
                     // 为新闻页面添加动画效果
                     entry.target.classList.add('in-view');
+                } else if (sectionId === 'sheIsNotSheSection') {
+                    // 为她不是她页面添加动画效果
+                    entry.target.classList.add('in-view');
                 }
             } else {
                 // 页面离开视口后，隐藏所有文本框
                 if (entry.target.id === 'chapter3CustomCoverSection2') {
                     entry.target.classList.remove('in-view');
                 } else if (entry.target.id === 'customBackgroundSectionNews') {
+                    entry.target.classList.remove('in-view');
+                } else if (entry.target.id === 'sheIsNotSheSection') {
                     entry.target.classList.remove('in-view');
                 } else {
                     hideAllTextBoxes();
@@ -896,6 +902,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (customBackgroundSectionNews) {
         textBoxObserver.observe(customBackgroundSectionNews);
     }
+    
+    // 观察她不是她页面
+    const sheIsNotSheSection = document.getElementById('sheIsNotSheSection');
+    if (sheIsNotSheSection) {
+        textBoxObserver.observe(sheIsNotSheSection);
+    }
+    
+
     
          // 观察自定义背景页面
      const customBackgroundSection = document.getElementById('customBackgroundSection');
@@ -1626,4 +1640,6 @@ window.addEventListener('load', function() {
     console.log('页面完全加载完成，再次尝试初始化图表切换功能');
     initChapter3ChartSwitch();
 });
+
+
 
