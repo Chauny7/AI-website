@@ -7,10 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-
-
 <body>
-    <!-- 导航栏 -->
     <nav class="quick-nav">
         <a href="#hero" title="按S键快速回到首页">Start</a>
         <span class="nav-separator">|</span>
@@ -38,7 +35,7 @@
         <div class="fullscreen-cover">
             <img src="assets/第一章封面.png" alt="第一章封面" class="cover-image">
             <div class="cover-content">
-                <h2 class="cover-title">当AI重构逝者:慰藉的温柔与技术的僭越</h2>
+                <h2 class="cover-title">你好，再见</h2>
                 <p class="cover-subtitle">第一章：重逢</p>
             </div>
         </div>
@@ -78,6 +75,36 @@
 
     </div>
 
+    <!-- 技术解读页面 -->
+    <div class="tech-interpretation-section" id="techInterpretationSection">
+        <div class="tech-interpretation-content">
+            <!-- 左侧图片展示区域 -->
+            <div class="tech-images-container">
+                <div class="tech-image-slide active" data-index="1">
+                    <img src="assets/TTS语音克隆技术展示.png" alt="TTS语音克隆技术展示">
+                </div>
+                <div class="tech-image-slide" data-index="2">
+                    <img src="assets/智能交互动画技术示意图.png" alt="智能交互动画技术示意图">
+                </div>
+                <div class="tech-image-slide" data-index="3">
+                    <img src="assets/面部动态复刻技术展示.png" alt="面部动态复刻技术展示">
+                </div>
+            </div>
+            <!-- 右侧按钮区域 -->
+            <div class="tech-buttons-container">
+                <button class="tech-button active" data-index="1">
+                    <img src="assets/语音按钮.png" alt="TTS语音克隆">
+                </button>
+                <button class="tech-button" data-index="2">
+                    <img src="assets/智能按钮.png" alt="智能交互动画">
+                </button>
+                <button class="tech-button" data-index="3">
+                    <img src="assets/面态技术按钮.png" alt="面部动态复刻">
+                </button>
+            </div>
+        </div>
+    </div>
+
         <div class="transition-section" id="transitionSection">
             <div class="transition-content">
                 <!-- 第一个文本框（顶部段落） -->
@@ -95,6 +122,7 @@
                     <p>“这一刻，我真正感受到了AI的意义</p>
                     <p>————做这个视频完全是为了妈妈。”</p>
                 </div>
+                <div class="source-info">来源：https://finance.sina.com.cn/roll/2025-04-06/doc-inesewqw2626483.shtml </div>
             </div>
         </div>
 
@@ -111,8 +139,14 @@
             <div class="floating-news-image liu-dehua-floating" id="liuDehuaFloatingImage">
                 <img src="assets/chapter1（刘德华拍立得）.png" alt="刘德华拍立得" class="floating-image">
             </div>
-                    <!-- 来源信息 -->
-            <div class="source-info">来源：@https://b23.tv/htbRqg1</div>
+            
+            <!-- 图恒宇语录文本框 -->
+            <div class="quote-text-box quote-text-box-1">
+                <p>“我女儿走的那一刻，我就觉得人生的意义荡然无存，都不存在”</p>
+                <p class="quote-author">——图恒宇</p>
+            </div>
+            
+            <div class="source-info">来源：https://b23.tv/htbRqg1</div>
         </div>
 
         <!-- 包新闻页面 -->
@@ -128,8 +162,15 @@
             <div class="floating-news-image bao-floating" id="baoFloatingImage">
                 <img src="assets/chapter1（包拍立得）.png" alt="包拍立得" class="floating-image">
             </div>
+            
+            <!-- 包小柏语录文本框 -->
+            <div class="quote-text-box quote-text-box-2">
+                <p>"我女儿走的那一刻，我就觉得人生的意义荡然无存，都不存在"</p>
+                <p class="quote-author">——包小柏</p>
+            </div>
+            
             <!-- 来源信息 -->
-            <div class="source-info">来源：@https://b23.tv/htbRqg1</div>
+            <div class="source-info">来源：https://mp.weixin.qq.com/s/cF-BXo6sNYLiie9p54xIUg下·</div>
         </div>
 
     <!-- 黑色背景页面 - 插入iframe图表 -->
@@ -179,314 +220,12 @@
             </div>
         </div>
     </div>
-
-    <!-- 技术分析部分 -->
-    <div class="analysis-section">
-        <div class="analysis-content">
-            <!-- 左上角三位哥矢量图 -->
-            <div class="top-left-image">
-                <img src="assets/chapter1（三位哥矢量图）.png" alt="三位哥矢量图" class="vector-image-top">
-            </div>
-
-            <!-- 右下角矢量图 -->
-            <div class="bottom-right-image">
-                <img src="assets/chapter1（书籍矢量图）.png" alt="书籍矢量图" class="vector-image">
-            </div>
-            
-            
-            
-            <!-- 技术概览区域 -->
-            <div class="tech-overview">
-                <div class="glass-container overview-glass">
-                    <h3>AI复活技术概览</h3>
-                    
-                    <!-- 技术详情小界面 -->
-                    <div class="tech-detail-preview" id="techDetailPreview">
-                        <!-- 默认显示概览内容 -->
-                        <div class="preview-content active" id="overviewPreview">
-                            <div class="preview-overview">
-                                <h4>技术概览</h4>
-                                <div class="tech-summary">
-                                    <div class="summary-item">
-                                        <span class="summary-icon">🎭</span>
-                                        <span class="summary-text">面部动态复刻技术</span>
-                                    </div>
-                                    <div class="summary-item">
-                                        <span class="summary-icon">🎵</span>
-                                        <span class="summary-text">TTS语音克隆技术</span>
-                                    </div>
-                                    <div class="summary-item">
-                                        <span class="summary-icon">🤖</span>
-                                        <span class="summary-text">智能交互动画技术</span>
-                                    </div>
-                                </div>
-                                <p class="preview-description">点击右侧技术项目查看详细内容</p>
-                            </div>
-                        </div>
-                        
-                        <!-- 面部动态复刻详情预览 -->
-                        <div class="preview-content" id="facialPreview">
-                            <div class="preview-header">
-                                <h4>面部动态复刻技术</h4>
-                                <button class="preview-close" onclick="closePreview()">×</button>
-                            </div>
-                            <div class="preview-body">
-                                <div class="preview-left">
-                                    <div class="preview-image">
-                                        <img src="assets/面部动态复刻技术展示.png" alt="面部动态复刻技术展示">
-                                    </div>
-                                </div>
-                                <div class="preview-right">
-                                    <div class="preview-text">
-                                        <h5>技术原理</h5>
-                                        <p>基于深度学习（Deep Learning）+ 神经辐射场（NeRF）+ 高精度动作捕捉，通过分析大量面部表情和肌肉运动数据，构建动态三维面部模型。</p>
-                                        
-                                        <h5>核心技术</h5>
-                                        <ul>
-                                            <li>面部特征点检测：MediaPipe FaceMesh（468+关键点）</li>
-                                            <li>表情识别算法：CNN + Transformer架构</li>
-                                            <li>肌肉运动建模：Blendshape + 物理肌肉模拟</li>
-                                            <li>实时渲染技术：Unreal Engine 5 + GPU RT</li>
-                                        </ul>
-                                        
-                                        <h5>应用亮点</h5>
-                                        <ul>
-                                            <li>虚拟人视频通话：实时驱动，面对面交流</li>
-                                            <li>历史人物复原：重现历史人物的生动形象</li>
-                                            <li>高沉浸式数字分身：真实情感表达</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- TTS语音克隆详情预览 -->
-                        <div class="preview-content" id="ttsPreview">
-                            <div class="preview-header">
-                                <h4>TTS语音克隆技术</h4>
-                                <button class="preview-close" onclick="closePreview()">×</button>
-                            </div>
-                            <div class="preview-body">
-                                <div class="preview-left">
-                                    <div class="preview-image">
-                                        <img src="assets/TTS语音克隆技术展示.jpg" alt="TTS语音克隆技术展示">
-                                    </div>
-                                </div>
-                                <div class="preview-right">
-                                    <div class="preview-text">
-                                        <h5>技术原理</h5>
-                                        <p>通过零样本（Zero-Shot）语音克隆和情感语音合成（Emotional TTS）技术，在短音频样本下复刻目标声音特征。</p>
-                                        
-                                        <h5>核心技术</h5>
-                                        <ul>
-                                            <li>声纹提取：ECAPA-TDNN + Speaker Embedding</li>
-                                            <li>音素建模：Transformer-TTS（VITS、FastSpeech2）</li>
-                                            <li>情感迁移：融合Prosody Transfer</li>
-                                            <li>实时合成：端侧加速（ONNX Runtime/TensorRT）</li>
-                                        </ul>
-                                        
-                                        <h5>应用亮点</h5>
-                                        <ul>
-                                            <li>与全息投影结合：实现"开口说话"效果</li>
-                                            <li>历史录音修复与扩展：重现珍贵历史声音</li>
-                                            <li>多语言声音迁移：保留原声音色</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- 智能交互动画详情预览 -->
-                        <div class="preview-content" id="interactionPreview">
-                            <div class="preview-header">
-                                <h4>智能交互动画技术</h4>
-                                <button class="preview-close" onclick="closePreview()">×</button>
-                            </div>
-                            <div class="preview-body">
-                                <div class="preview-left">
-                                    <div class="preview-image">
-                                        <img src="assets/智能交互动画技术示意图.png" alt="智能交互动画技术展示">
-                                    </div>
-                                </div>
-                                <div class="preview-right">
-                                    <div class="preview-text">
-                                        <h5>技术原理</h5>
-                                        <p>融合AI行为预测（Behavior Prediction AI）+ 动作捕捉（Motion Capture）+ 物理模拟（Physics Simulation），让数字形象能根据场景、语境、用户互动即时生成自然动作和表情。</p>
-                                        
-                                        <h5>核心技术</h5>
-                                        <ul>
-                                            <li>动作库构建：采用GAN动作生成（MoGAN）</li>
-                                            <li>智能响应算法：LLM + Contextual Gesture Mapping</li>
-                                            <li>平滑过渡技术：Motion Matching技术</li>
-                                            <li>实时渲染优化：WebGPU/Nanite技术</li>
-                                        </ul>
-                                        
-                                        <h5>应用亮点</h5>
-                                        <ul>
-                                            <li>与用户语音实时互动：表情同步</li>
-                                            <li>场景感知：虚拟人会"看向"声音来源</li>
-                                            <li>动作与情绪联动：情绪化动作表达</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 技术解读区域 -->
-            <div class="tech-analysis">
-                <div class="glass-container tech-glass">
-                    <h3>核心技术解读</h3>
-                    <div class="tech-items">
-                        <div class="tech-item" onclick="showPreview('facial')">
-                            <div class="tech-icon">🎭</div>
-                            <h4>面部动态复刻</h4>
-                            <p>通过深度学习算法，精确捕捉和重现面部表情的细微变化，实现真实的情感表达。</p>
-                            <div class="tech-tag">深度学习</div>
-                        </div>
-                        <div class="tech-item" onclick="showPreview('tts')">
-                            <div class="tech-icon">🎵</div>
-                            <h4>TTS语音克隆</h4>
-                            <p>基于神经网络的语音合成技术，完美复制原声的音色、语调和情感色彩。</p>
-                            <div class="tech-tag">语音合成</div>
-                        </div>
-                        <div class="tech-item" onclick="showPreview('interaction')">
-                            <div class="tech-icon">🤖</div>
-                            <h4>智能交互动画</h4>
-                            <p>通过动作捕捉和实时渲染，实现自然的挥手、点头等基础互动行为。</p>
-                            <div class="tech-tag">实时交互</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 技术应用场景 -->
-            <div class="tech-applications">
-                <div class="glass-container applications-glass">
-                    <h3>应用场景</h3>
-                    <div class="application-items">
-                        <div class="application-item">
-                            <h4>情感慰藉</h4>
-                            <p>为失去亲人的家庭提供情感寄托，让思念有处安放</p>
-                        </div>
-                        <div class="application-item">
-                            <h4>文化传承</h4>
-                            <p>保存和传承珍贵的历史记忆，让逝者的精神永存</p>
-                        </div>
-                        <div class="application-item">
-                            <h4>教育意义</h4>
-                            <p>通过技术展示，引发对生命意义和伦理边界的思考</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 技术详情页面 -->
-    <div id="techDetailModal" class="tech-detail-modal">
-        <div class="tech-detail-content">
-            <button class="close-btn" onclick="closeTechDetail()">&times;</button>
-            
-            <!-- 面部动态复刻详情 -->
-            <div id="facial-detail" class="tech-detail-page">
-                <h2>面部动态复刻技术</h2>
-                <div class="tech-detail-section">
-                    <div class="tech-image-container">
-                        <img src="assets/面部动态复刻技术展示.png" alt="面部动态复刻技术展示" class="tech-detail-image">
-                    </div>
-                    <h3>技术原理</h3>
-                    <p>基于 <strong>深度学习（Deep Learning）</strong> + <strong>神经辐射场（NeRF）</strong> + <strong>高精度动作捕捉</strong>，通过分析大量面部表情和肌肉运动数据，构建动态三维面部模型。借助 <strong>多模态传感器（RGB-D 摄像头、LiDAR、IMU）</strong>实时捕捉微表情，包括眼部眨动、唇形细微变化、眉毛运动等，并通过 AI 渲染还原出拟真的视觉效果。</p>
-                </div>
-                <div class="tech-detail-section">
-                    <h3>核心技术升级版</h3>
-                    <ul>
-                        <li><strong>面部特征点检测：</strong>使用 MediaPipe FaceMesh（468+关键点）替代传统 68 点，精度更高</li>
-                        <li><strong>表情识别算法：</strong>融合 CNN 与 Transformer 架构，增强对情绪变化的感知</li>
-                        <li><strong>肌肉运动建模：</strong>结合 Blendshape + 物理肌肉模拟，还原皮肤褶皱与光影变化</li>
-                        <li><strong>实时渲染技术：</strong>使用 Unreal Engine 5 + GPU RT（实时光线追踪）提升细节质感</li>
-                    </ul>
-                </div>
-                <div class="tech-detail-section">
-                    <h3>新增应用亮点</h3>
-                    <ul>
-                        <li><strong>虚拟人视频通话：</strong>实时驱动，实现面对面交流体验</li>
-                        <li><strong>历史人物复原：</strong>基于影像资料，重现历史人物的生动形象</li>
-                        <li><strong>高沉浸式数字分身：</strong>创造具有真实情感表达的数字形象</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- TTS语音克隆详情 -->
-            <div id="tts-detail" class="tech-detail-page">
-                <h2>TTS语音克隆技术</h2>
-                <div class="tech-detail-section">
-                    <div class="tech-image-container">
-                        <img src="assets/TTS语音克隆技术展示.jpg" alt="TTS语音克隆技术展示" class="tech-detail-image">
-                    </div>
-                    <h3>技术原理</h3>
-                    <p>通过 <strong>零样本（Zero-Shot）语音克隆</strong> 和 <strong>情感语音合成（Emotional TTS）</strong> 技术，在短音频样本下复刻目标声音特征。深度学习模型会提取声纹、音色、语调、韵律等特征，并通过 <strong>多任务学习</strong> 同时保留情感色彩与个性化音质，实现高保真、低延迟的语音生成。</p>
-                </div>
-                <div class="tech-detail-section">
-                    <h3>核心技术升级版</h3>
-                    <ul>
-                        <li><strong>声纹提取：</strong>使用 ECAPA-TDNN + Speaker Embedding 提高说话人识别稳定性</li>
-                        <li><strong>音素建模：</strong>Transformer-TTS（如 VITS、FastSpeech2）实现自然韵律控制</li>
-                        <li><strong>情感迁移：</strong>融合 Prosody Transfer，可将原音频的情绪状态迁移到新内容</li>
-                        <li><strong>实时合成：</strong>端侧加速（ONNX Runtime / TensorRT）实现毫秒级延迟</li>
-                    </ul>
-                </div>
-                <div class="tech-detail-section">
-                    <h3>新增应用亮点</h3>
-                    <ul>
-                        <li><strong>可与全息投影结合：</strong>实现"开口说话"的震撼效果</li>
-                        <li><strong>历史录音修复与扩展：</strong>让珍贵的历史声音重现生机</li>
-                        <li><strong>多语言声音迁移：</strong>保留原声音色，支持多语言表达</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 智能交互动画详情 -->
-            <div id="interaction-detail" class="tech-detail-page">
-                <h2>智能交互动画技术</h2>
-                <div class="tech-detail-section">
-                    <div class="tech-image-container">
-                        <img src="assets\智能交互动画技术示意图.png" alt="智能交互动画技术展示" class="tech-detail-image">
-                    </div>
-                    <h3>技术原理</h3>
-                    <p>融合 <strong>AI行为预测（Behavior Prediction AI）</strong> + <strong>动作捕捉（Motion Capture）</strong> + <strong>物理模拟（Physics Simulation）</strong>，让数字形象能根据场景、语境、用户互动即时生成自然动作和表情。通过 <strong>深度强化学习（Deep Reinforcement Learning）</strong>，AI 可以学习不同情境下的最佳互动模式。</p>
-                </div>
-                <div class="tech-detail-section">
-                    <h3>核心技术升级版</h3>
-                    <ul>
-                        <li><strong>动作库构建：</strong>采用 GAN 动作生成（MoGAN）扩展动作多样性</li>
-                        <li><strong>智能响应算法：</strong>基于 LLM + Contextual Gesture Mapping，让动作与语义匹配</li>
-                        <li><strong>平滑过渡技术：</strong>使用 Motion Matching 技术自动匹配前后动作，保证自然衔接</li>
-                        <li><strong>实时渲染优化：</strong>WebGPU / Nanite 技术提升帧率与细节</li>
-                    </ul>
-                </div>
-                <div class="tech-detail-section">
-                    <h3>新增应用亮点</h3>
-                    <ul>
-                        <li><strong>与用户语音实时互动：</strong>表情同步，增强交流体验</li>
-                        <li><strong>场景感知：</strong>虚拟人会"看向"声音来源，展现智能反应</li>
-                        <li><strong>动作与情绪联动：</strong>愤怒时手势加重，开心时笑容更明显</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
     <!-- 第二章模块封皮 -->
     <div class="subtitle-section" id="chapter2Section">
         <div class="fullscreen-cover">
             <img src="assets/第二章封面.png" alt="第二章封面" class="cover-image">
             <div class="cover-content">
-                <h2 class="cover-title">当AI重构逝者:慰藉的温柔与技术的僭越</h2>
+                <h2 class="cover-title">你好，再见</h2>
                 <p class="cover-subtitle">第二章：喧寂</p>
             </div>
         </div>
@@ -548,7 +287,7 @@
         <div class="flourish-embed flourish-chart" data-src="visualisation/24759750">
             <script src="https://public.flourish.studio/resources/embed.js"></script>
             <noscript>
-                <img src="https://public.flourish.studio/visualisation/24759750/thumbnail" width="100%" alt="chart visualization" />
+                <img src="https://public.flourish.studio/visualisation/24765381/thumbnail" width="100%" alt="chart visualization" />
             </noscript>
         </div>
     </div>
@@ -668,13 +407,28 @@
             </div>
         </div>
     </div>
+    
+    <!-- 新增页面 - 她不是她 -->
+    <div class="custom-background-section" id="sheIsNotSheSection">
+        <div class="custom-content">
+            <!-- 第一个文本框 - 技术局限性 -->
+            <div class="she-text-box she-text-box-1">
+                <p>技术局限性</p>
+            </div>
+            
+            <!-- 第二个文本框 - 她不是她 -->
+            <div class="she-text-box she-text-box-2">
+                <p>"她"不是她</p>
+            </div>
+        </div>
+    </div>
 
     <!-- 第三章模块封皮 -->
     <div class="subtitle-section" id="chapter3Section">
         <div class="fullscreen-cover">
             <img src="assets/第三章封面.png" alt="第三章封面" class="cover-image">
             <div class="cover-content">
-                <h2 class="cover-title">当AI重构逝者:慰藉的温柔与技术的僭越</h2>
+                <h2 class="cover-title">你好，再见</h2>
                 <p class="cover-subtitle">第三章：扰魂</p>
             </div>
         </div>
@@ -687,7 +441,17 @@
                 <img src="assets/chapter3（剧情1）.png" alt="第三幕照片1">
             </div>
             <div class="vertical-slide" data-index="2">
-                <img src="E:\项目\数据新闻大赛\网页（2）\assets\chapter3（剧情）.png" alt="第三幕照片2">
+                <img src="assets\chapter3（剧情）.png" alt="第三幕照片2">
+                <!-- 第二个横着文本框放在第二张照片内 -->
+                         <!-- 新增的横着文本框 -->
+            <div class="horizontal-quote-box horizontal-quote-box-1">
+                <p>"他们未征求我们同意，这是在揭伤疤。"</p>
+                <p class="quote-author">——乔任梁父亲</p>
+            </div>
+                <div class="horizontal-quote-box horizontal-quote-box-2">
+                    <p>"不接受！不接受！不接受！凭什么为我们（我与女儿）做决定！"</p>
+                    <p class="quote-author">——江歌妈妈</p>
+                </div>
             </div>
         </div>
         
@@ -701,14 +465,28 @@
         <div class="dynamic-subtitle" id="chapter3DynamicSubtitle">
             <div class="subtitle-text"></div>
         </div>
+        
+
     </div>
 
     <!-- 第三幕自定义背景页面 -->
     <div class="chapter3-custom-background-section" id="chapter3CustomBackgroundSection">
+        <!-- 右上角提示文字 -->
+        <div class="photo-tip">点击照片查看具体新闻</div>
+        
         <div class="chapter3-photos-container">
-            <img src="assets/chapter3（拍立得-乔（final））.png" alt="拍立得-乔" class="chapter3-photo" onclick="showQiaoPage()">
-            <img src="assets/chapter3（拍立得-高（final））.png" alt="拍立得-高" class="chapter3-photo" onclick="showGaoPage()">
-            <img src="E:\项目\数据新闻大赛\网页（2）\assets\chapter3（拍立得-coco（final））.png" alt="拍立得-coco" class="chapter3-photo" onclick="showCocoPage()">
+            <div class="photo-with-text photo-qiao" onclick="showQiaoPage()">
+                <img src="assets/chapter3（拍立得-乔（final））.png" alt="拍立得-乔" class="chapter3-photo">
+                <div class="photo-bottom-text">点击照片查看具体新闻</div>
+            </div>
+            <div class="photo-with-text photo-gao" onclick="showGaoPage()">
+                <img src="assets/chapter3（拍立得-高（final））.png" alt="拍立得-高" class="chapter3-photo">
+                <div class="photo-bottom-text">点击照片查看具体新闻</div>
+            </div>
+            <div class="photo-with-text photo-coco" onclick="showCocoPage()">
+                <img src="assets\chapter3（拍立得-coco（final））.png" alt="拍立得-coco" class="chapter3-photo">
+                <div class="photo-bottom-text">点击照片查看具体新闻</div>
+            </div>
         </div>
         
         <!-- 来源信息 -->
@@ -738,9 +516,14 @@
 
     <!-- 第三幕自定义封面页面1 -->
     <div class="custom-cover-section" id="chapter3CustomCoverSection1">
-        <!-- 切换按钮 -->
-        <div class="chart-switch-button" id="chartSwitchButton">
-            <span class="button-text">切换到地图视图</span>
+        <!-- 图表切换按钮 -->
+        <div class="chart-switch-buttons">
+            <div class="chart-switch-button" id="mapButton">
+                <span class="button-text">地图视图</span>
+            </div>
+            <div class="chart-switch-button" id="wordCloudButton">
+                <span class="button-text">词云视图</span>
+            </div>
         </div>
         
         <!-- 初始显示的map图表 -->
@@ -759,13 +542,7 @@
             </noscript>
         </div>
         
-        <!-- 第三个iframe图：公众对改权力应该由谁监管的看法 -->
-        <div class="flourish-embed flourish-pictogram" id="pictogramChart" data-src="visualisation/24746008" style="display: none; width: 110vw; height: 90vh; max-width: 1400px; max-height: 900px;">
-            <script src="https://public.flourish.studio/resources/embed.js"></script>
-            <noscript>
-                <img src="https://public.flourish.studio/visualisation/24746008/thumbnail" width="100%" alt="pictogram visualization" />
-            </noscript>
-        </div>
+
     </div>
 
     <!-- 第三幕自定义封面页面2 -->
@@ -774,7 +551,8 @@
         
         <!-- 第一个文本框 -->
         <div class="chapter3-text-box chapter3-text-box-1">
-            <p>未经其法定继承人的同意，不能使用AI软件或其他方式去合成其肖像或声音，<br>否则构成侵权。<br>——中国政法大学知识产权研究中心特约研究员赵占领</p>
+            <p>未经其法定继承人的同意，不能使用AI软件或其他方式去合成其肖像或声音，否则构成侵权。</p>
+            <p>——中国政法大学知识产权研究中心特约研究员赵占领</p>
         </div>
         
         <!-- 第二个文本框 -->
@@ -784,15 +562,12 @@
     </div>
 
 
-
-
-
     <!-- 第四章：归念 -->
     <div class="subtitle-section" id="chapter4Section">
         <div class="fullscreen-cover">
             <img src="assets/第四章封面.png" alt="第四章封面" class="cover-image">
             <div class="cover-content">
-                <h2 class="cover-title">当AI重构逝者:慰藉的温柔与技术的僭越</h2>
+                <h2 class="cover-title">你好，再见</h2>
                 <p class="cover-subtitle">第四章：归念</p>
             </div>
         </div>
@@ -820,7 +595,7 @@
                 <img src="assets\chapter4（6）.png" alt="未来场景6">
             </div>
             <div class="vertical-slide" data-index="7">
-                <img src="E:\项目\数据新闻大赛\网页（2）\assets\chapter4（7）.png" alt="自定义背景">
+                <img src="assets\chapter4（7）.png" alt="自定义背景">
             </div>
         </div>
         <!-- 图片指示器 -->
@@ -844,14 +619,65 @@
         <!-- 结束语背景 -->
         <div class="ending-background-image"></div>
         
+        <!-- 新背景图片容器 -->
+        <div class="ending-new-background" id="endingNewBackground">
+            <img src="assets/ending（背景） - 副本.png" alt="Ending背景" class="ending-bg-image">
+        </div>
+        
+        <!-- Ending按钮 -->
+        <div class="ending-button" id="endingButton">
+            <span>Ending</span>
+        </div>
+        
+        <!-- 照片展示区域 -->
+        <div class="ending-photos-container" id="endingPhotosContainer">
+            <!-- 第一行照片 -->
+            <div class="ending-photo ending-photo-1" data-photo="chapter1">
+                <img src="assets/chapter1.png" alt="第一章封面">
+            </div>
+            
+            <div class="ending-photo ending-photo-2" data-photo="chapter2-1">
+                <img src="assets/chapter2（1）.png" alt="第二章图片1">
+            </div>
+            
+            <div class="ending-photo ending-photo-3" data-photo="chapter2-2">
+                <img src="assets/chapter2（2）.png" alt="第二章图片2">
+            </div>
+            
+            <div class="ending-photo ending-photo-4" data-photo="chapter2-3">
+                <img src="assets/chapter2（3）.png" alt="第二章图片3">
+            </div>
+            
+            <!-- 第二行照片 -->
+            <div class="ending-photo ending-photo-5" data-photo="chapter2-4">
+                <img src="assets/chapter2（4）.png" alt="第二章图片4">
+            </div>
+            
+            <div class="ending-photo ending-photo-6" data-photo="chapter3-1">
+                <img src="assets/chapter3（剧情1）.png" alt="第三章剧情1">
+            </div>
+            
+            <div class="ending-photo ending-photo-7" data-photo="chapter3-coco">
+                <img src="assets/chapter3（拍立得-coco（final））.png" alt="第三章Coco拍立得">
+            </div>
+            
+            <div class="ending-photo ending-photo-8" data-photo="chapter3-gao">
+                <img src="assets/chapter3（拍立得-高（final））.png" alt="第三章高以翔拍立得">
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- 结束前背景页面 -->
+    <div class="custom-cover-section" id="endingBackgroundSection">
+        <!-- 背景图片 -->
+        <div class="ending-background" style="background-image: url('assets/背景（last）.png'); background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; height: 100vh; position: absolute; top: 0; left: 0;"></div>
     </div>
 
     <!-- 结束前自定义背景页面 -->
     <div class="custom-cover-section" id="endingCustomCoverSection">
-        <div class="ending-content">
-            <h2 class="ending-title">结束语</h2>
-            <p class="ending-text">AI复活技术让我们重新思考生命、记忆与技术的边界。在追求技术进步的同时，我们也要保持对生命的敬畏和对人性的思考。</p>
-        </div>
+        <!-- 背景图片 -->
+        <div class="ending-background" style="background-image: url('assets/ending（lastone）.png'); background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; height: 100vh; position: absolute; top: 0; left: 0;"></div>
     </div>
 
     <!-- 矢量图弹窗 -->
@@ -982,45 +808,217 @@
                 <div class="title-line"></div>
             </div>
             
+        <div class="staff-content">
+            <!-- 标题 -->
+            <div class="staff-title">
+                <h1>制作团队</h1>
+                <div class="title-line"></div>
+            </div>
+            
             <!-- 制作团队部分 -->
             <div class="staff-section">
-                <h2>制作团队</h2>
-                <div class="staff-list">
-                    <div class="staff-item">
-                        <span class="staff-name">柳玥言</span>
-                    </div>
-                    <div class="staff-item">
-                        <span class="staff-name">王昊</span>
-                    </div>
-                    <div class="staff-item">
-                        <span class="staff-name">王艺霏</span>
-                    </div>
+ 
+                <div class="staff-names">
+                    <p>柳玥言、王昊、王艺霏</p>
                 </div>
             </div>
             
-            <!-- 指导老师部分 -->
+            <!-- 具体分工 -->
             <div class="staff-section">
-                <h2>指导老师</h2>
-                <div class="teacher-list">
-                    <div class="teacher-item">
-                        <span class="teacher-name">李立老师</span>
-                        <span class="teacher-school">成都大学文学与新闻传播学院</span>
+                <div class="work-division">
+                    <div class="credit-item">
+                        <div class="role">问卷调查、采访</div>
+                        <div class="name">柳玥言</div>
                     </div>
-                    <div class="teacher-item">
-                        <span class="teacher-name">孔娟老师</span>
-                        <span class="teacher-school">成都大学文学与新闻传播学院</span>
+                    
+                    <div class="credit-item">
+                        <div class="role">数据获取</div>
+                        <div class="name">王昊、柳玥言</div>
                     </div>
-                    <div class="teacher-item">
-                        <span class="teacher-name">任子毅老师</span>
-                        <span class="teacher-school">成都大学斯特灵学院</span>
+                    
+                    <div class="credit-item">
+                        <div class="role">数据分析</div>
+                        <div class="name">王昊</div>
+                    </div>
+                    
+                    <div class="credit-item">
+                        <div class="role">数据可视化</div>
+                        <div class="name">王艺霏、王昊、柳玥言</div>
+                    </div>
+                    
+                    <div class="credit-item">
+                        <div class="role">新闻撰写</div>
+                        <div class="name">王艺霏、柳玥言</div>
+                    </div>
+                    
+                    <div class="credit-item">
+                        <div class="role">网页UI设计</div>
+                        <div class="name">柳玥言、王昊</div>
+                    </div>
+                    
+                    <div class="credit-item">
+                        <div class="role">网页制作</div>
+                        <div class="name">王昊</div>
+                    </div>
+                    
+                    <div class="credit-item">
+                        <div class="role">艺术设计</div>
+                        <div class="name">柳玥言</div>
                     </div>
                 </div>
             </div>
             
-            <!-- 结束语 -->
-            <div class="staff-ending">
-                <p>感谢所有参与者的支持与帮助</p>
-                <div class="ending-line"></div>
+            
+            <!-- 联系方式 -->
+            <div class="staff-section">
+                <h2>联系方式</h2>
+                <div class="contact-info">
+                    <div class="credit-item">
+                        <div class="name">liuyueyan@stu.cdu.edu.cn</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 校院标 -->
+            <div class="school-logo-section">
+                <img src="assets/校院标.jpg" alt="校院标" class="school-logo">
+            </div>
+            
+            <!-- 参考文献 -->
+            <div class="references-section">
+                <h2>参考文献</h2>
+                
+                <!-- 一、新闻报道 -->
+                <div class="reference-category">
+                    <h3>一、新闻报道</h3>
+                    <div class="reference-list">
+                        <div class="reference-item">
+                            <span class="reference-number">[1]</span>
+                            <span class="reference-content">新浪财经. 10元就能"复活"亲人？清明节催热AI"复活"生意 伦理与法律的界线引争议[EB/OL]. (2025-04-06). https://finance.sina.com.cn/roll/2025-04-06/doc-inesewqw2626483.shtml.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[2]</span>
+                            <span class="reference-content">是爱吃辣的咸鱼啊. 【4K画质】 图恒宇：我要给丫丫完整的一生[EB/OL]. (2023-04-18). https://b23.tv/htbRqg1.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[3]</span>
+                            <span class="reference-content">经济观察网. 包小柏：我是如何"复活"女儿的[N/OL]. (2024-03-09). https://mp.weixin.qq.com/s/cF-BXo6sNYLiie9p54xIUg.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[4]</span>
+                            <span class="reference-content">观察者网. 耗资7亿，他用VR和去世4年的妻子再见面，全程泪目[EB/OL]. (2021-11-11). https://user.guancha.cn/main/content?id=631506.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[5]</span>
+                            <span class="reference-content">今日头条. 当已逝亲人被AI复活[EB/OL]. (2024-05-15). https://www.toutiao.com/article/7369110557578543616/</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[6]</span>
+                            <span class="reference-content">澎湃新闻. 未经同意用AI"复活"已逝明星遭声讨！网友：凭什么替人家决定！[EB/OL]. (2024-03-18) [2025-08-13]. https://www.thepaper.cn/newsDetail_forward_26725165.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 二、法律文件及相关规定 -->
+                <div class="reference-category">
+                    <h3>二、法律文件及相关规定</h3>
+                    <div class="reference-list">
+                        <div class="reference-item">
+                            <span class="reference-number">[1]</span>
+                            <span class="reference-content">人民日报. 直面人工智能"复活"技术应用的伦理挑战[N/OL]. (2024-07-03). https://paper.people.com.cn/rmlt/html/2024-07/03/content_26076391.htm.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 三、专家观点 -->
+                <div class="reference-category">
+                    <h3>三、专家观点</h3>
+                    <div class="reference-list">
+                        <div class="reference-item">
+                            <span class="reference-number">[1]</span>
+                            <span class="reference-content">罗翔说刑法. 【罗翔】AI复活亲人有法律风险吗？[EB/OL]. (2024-04-19) [2025-08-11]. https://www.bilibili.com/video/BV1jw4m127mv</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[2]</span>
+                            <span class="reference-content">中央人民广播电台. AI"复活"缅怀逝者 暗藏哪些风险？[N/OL]. (2025-04-05). https://news.cnr.cn/dj/20250405/t20250405_527124388.shtml.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 四、数据资料 -->
+                <div class="reference-category">
+                    <h3>四、数据资料</h3>
+                    <div class="reference-list">
+                        <div class="reference-item">
+                            <span class="reference-number">[1]</span>
+                            <span class="reference-content">胡莎. 数字往生的心理建构：基于SCOT框架的AI复活争议分析[J]. 心理学进展, 2025, 15(6). DOI:10.12677/ap.2025.156380.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[2]</span>
+                            <span class="reference-content">巨量算数. "数字生命"在抖音的搜索指数数据[EB/OL]. [2025-08-07]. https://trendinsight.oceanengine.com/arithmetic-index/analysis?keyword=%E6%95%B0%E5%AD%97%E7%94%9F%E5%91%BD&appName=aweme.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[3]</span>
+                            <span class="reference-content">巨量算数. "脑机接口技术"在抖音的搜索指数数据[EB/OL]. [2025-08-17]. https://trendinsight.oceanengine.com/arithmetic-index/analysis?keyword=%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF&appName=aweme.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[4]</span>
+                            <span class="reference-content">问卷星.《公众对"AI复活"技术的认知、态度与接受度调查》[EB/OL]. [2025-8-18]. https://www.wjx.cn/vm/wFmMhmu.aspx.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[5]</span>
+                            <span class="reference-content">澎湃新闻. 未经同意用AI"复活"已逝明星遭声讨！网友：凭什么替人家决定！[EB/OL]. (2024-03-18) [2025-08-13]. https://www.thepaper.cn/newsDetail_forward_26725165.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[6]</span>
+                            <span class="reference-content">Google. 关键词"digital life"：基于Google Trends的数据分析[EB/OL]. (2025-08-14) [2025-08-14]. https://trends.google.com/trends/explore?q=digital%20life&hl=zh-CN.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[7]</span>
+                            <span class="reference-content">Always-Kid. 将过世奶奶年轻时候的照片视频化，并发给爷爷看……[EB/OL]. (2021-04-20) [2025-08-11]. https://www.bilibili.com/video/BV1vK4y1o78T/.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[8]</span>
+                            <span class="reference-content">我要WhatYouNeed & 一瓶黄豆豆酱.爸爸离开10年后，我用AI"复活"了他。｜WE CARE [EB/OL]. (2024-05-13) [2025-08-08].https://www.bilibili.com/video/BV18D421A7xC/?spm_id_from=333.1387.favlist.content.click.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[9]</span>
+                            <span class="reference-content">阿叽嘻.AI让老照片动起来的那一刻，泪崩了😭满满回忆杀[EB/OL]. (2024-06-27) [2025-07-31].https://www.bilibili.com/video/BV1A13reCEvV/?spm_id_from=333.1387.favlist.content.click&vd_source=7e139d9ef204f8e16798eeeb56eb31e2.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[10]</span>
+                            <span class="reference-content">AI造梦师小宝. 跨越时空的禁忌 和思念的亲人同框 Ai的意义在这一刻"活"了 [EB/OL]. (2024-07-15) [2025-07-31].https://www.bilibili.com/video/BV1RH4y1F7Mr/?spm_id_from=333.1387.favlist.content.click&vd_source=7e139d9ef204f8e16798eeeb56eb31e2.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[11]</span>
+                            <span class="reference-content">AI造梦师小宝. 或许这才是AI存在的真正意义，让尘封的记忆变得鲜活起来，让想念的人再次开口说话，让时间这个物理维度变得模糊。[EB/OL]. (2024-07-15) [2025-07-30].https://www.bilibili.com/video/BV1Hm421G7PQ/?spm_id_from=333.1387.favlist.content.click&vd_source=7e139d9ef204f8e16798eeeb56eb31e2.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[12]</span>
+                            <span class="reference-content">吴伍六. 用AI工具生成我奶奶的虚拟数字人[EB/OL]. (2024-07-15) [2025-07-21].https://www.bilibili.com/video/BV1QM411H7xC/?spm_id_from=333.1387.favlist.content.click&vd_source=7e139d9ef204f8e16798eeeb56eb31e2.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[13]</span>
+                            <span class="reference-content">冷叔笔记. AI复活的商机与争议，人类可以走向数字永生吗？[EB/OL]. (2024-07-15) [2025-07-28].https://www.bilibili.com/video/BV12f421m7Ei/?spm_id_from=333.1387.favlist.content.click&vd_source=7e139d9ef204f8e16798eeeb56eb31e2.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[14]</span>
+                            <span class="reference-content">塔塔AI说. "复活"邓丽君虚拟数字人[EB/OL]. (2024-07-15) [2025-07-27].https://www.bilibili.com/video/BV1HZ4y1C7CW/?spm_id_from=333.1387.favlist.content.click&vd_source=7e139d9ef204f8e16798eeeb56eb31e2.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[15]</span>
+                            <span class="reference-content">Brazilian Data Protection Authority (ANPD). The artificial intelligence legislation in Brazil: technical analysis of the text to be voted on in the Federal Senate plenary[R/OL]. (2024-12-10) [2025-07-18]. https://www.dataprivacybr.org/en/the-artificial-intelligence-legislation-in-brazil-technical-analysis-of-the-text-to-be-voted-on-in-the-federal-senate-plenary/.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[16]</span>
+                            <span class="reference-content">Digital Policy Alert. Introduced: Bill relating to criminal protection of personal rights against deepfakes (Brazil)[EB/OL]. (2024-07-05) [2025-07-18]. https://digitalpolicyalert.org/event/21354-introduced-bill-relating-to-criminal-protection-of-personal-rights-against-deepfakes.</span>
+                        </div>
+                        <div class="reference-item">
+                            <span class="reference-number">[17]</span>
+                            <span class="reference-content">Securiti Inc. South Korea Introduces the Basic Act on the Development of Artificial Intelligence (AI) and Protection of Its Users[R/OL]. (2025-03-03) [2025-07-18]. https://securiti.ai/south-korea-basic-act-on-development-of-ai/.</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
