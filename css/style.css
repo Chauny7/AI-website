@@ -478,21 +478,24 @@ body {
 /* 图表和图片容器样式 */
 .chart-image-container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 150%;
     max-width: 1600px;
     height: 800px;
-    gap: 40px;
+    gap: 20px;
+    padding-top: 0px;
+    padding-left: 130px;
 }
 
 /* 黑色背景页面的Flourish iframe样式 */
 .black-background-section .flourish-embed {
-    flex: 1;
-    height: 100%;
-    border-radius: 12px;
-    overflow: hidden;
-    margin-top: 70px;
+    width: 40%;
+    max-width: 900px;
+    height: 400px;
+    border-radius: 0;
+    overflow: visible;
     box-shadow: none;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -513,17 +516,75 @@ body {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    border-radius: 12px;
+    border-radius: 0;
 }
 
 .black-background-section .flourish-embed iframe {
     width: 100%;
     height: 100%;
     border: none;
-    border-radius: 12px;
+    border-radius: 0;
     box-shadow: none;
     outline: none;
     background: transparent;
+}
+
+/* bar-chart-race下方的bubble-chart样式 */
+.bubble-chart-below {
+    width: 20%;
+    max-width: 500px;
+    height: 200px;
+    margin-top: -100px;
+    margin-left: 50px;
+    position: relative;
+}
+
+.bubble-chart-below .flourish-embed {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    overflow: visible;
+}
+
+.bubble-chart-below .flourish-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+}
+
+.bubble-chart-below .source-info-bubble {
+    position: absolute;
+    bottom: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+}
+
+/* 右上角map-chart容器样式 */
+.map-chart-container {
+    position: absolute;
+    top: 100px;
+    right: 450px;
+    width: 400px;
+    height: 360px;
+    z-index: 10;
+}
+
+.map-chart-container .flourish-embed {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    overflow: visible;
+}
+
+.map-chart-container .flourish-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
 }
 
 /* 新闻页面样式 */
@@ -3535,26 +3596,46 @@ body {
 #priceBackgroundSection .flourish-embed {
     position: absolute;
     top: 20%; /* 靠中上位置 */
-    left: 50%;
+    left: 70%; /* 向右移动 */
     transform: translateX(-50%);
-    width: 80vw; /* 设置为视口宽度的80% */
-    height: 60vh; /* 设置为视口高度的60% */
+    width: 65vw; /* 增加宽度到视口宽度的65% */
+    height: 50vh; /* 增加高度到视口高度的50% */
     z-index: 10;
-    max-width: 1200px; /* 最大宽度限制 */
-    max-height: 600px; /* 最大高度限制 */
+    max-width: 900px; /* 增加最大宽度限制 */
+    max-height: 500px; /* 增加最大高度限制 */
+    border-radius: 0 !important; /* 去掉圆角 */
+    box-shadow: none !important; /* 去掉阴影 */
+    background: transparent !important; /* 去掉背景 */
+    backdrop-filter: none !important; /* 去掉玻璃态效果 */
+    -webkit-backdrop-filter: none !important; /* 去掉玻璃态效果 */
+    overflow: visible !important; /* 确保内容完全显示 */
+}
+
+/* 去掉价格背景页面iframe的边框和圆角 */
+#priceBackgroundSection .flourish-embed iframe {
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
 }
 
 /* 价格具体图样式 */
 .price-detail-image {
     position: absolute;
-    bottom: 8%; /* 偏下位置 */
-    left: 50%;
+    bottom: 42%; /* 向上移动 */
+    left: 25%; /* 向左移动 */
     transform: translateX(-50%);
-    width: 80vw; /* 设置为视口宽度的80%，调大一点 */
+    width: 50vw; /* 缩小到视口宽度的50% */
     height: auto; /* 高度自适应，保持比例 */
-    max-width: 1000px; /* 最大宽度限制，调大一点 */
+    max-width: 600px; /* 最大宽度限制缩小 */
     z-index: 10;
     object-fit: contain; /* 保持图片比例 */
+    opacity: 0; /* 初始不可见 */
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out; /* 添加过渡动画 */
+}
+
+/* 价格具体图浮现效果 */
+.price-detail-image.in-view {
+    opacity: 1; /* 浮现后可见 */
 }
 
 /* 第三幕自定义封面页面3中的Flourish象形图样式 */
@@ -3567,16 +3648,35 @@ body {
     z-index: 10;
     max-width: 600px; /* 减小最大宽度限制 */
     max-height: 600px; /* 减小最大高度限制 */
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: transparent !important;
+    border: none !important;
+    overflow: visible !important;
 }
 
-/* 第一个象形图（左边） */
+/* 第一个象形图（左边，原来右边的图，缩小一点） */
 #chapter3CustomCoverSection3 .flourish-embed:first-child {
     left: 25%; /* 再往右边移动一点 */
+    width: 30vw !important; /* 缩小到30% */
+    height: 45vh !important; /* 缩小高度 */
+    max-width: 450px !important; /* 减小最大宽度 */
+    max-height: 450px !important; /* 减小最大高度 */
 }
 
 /* 第二个象形图（右边） */
 #chapter3CustomCoverSection3 .flourish-embed:last-child {
     right: 5%; /* 往右边移动一点 */
+}
+
+/* 去掉象形图的iframe边框效果 */
+#chapter3CustomCoverSection3 .flourish-embed iframe {
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
 }
 
 /* 第三幕自定义封面页面1中的Flourish图表样式 */
@@ -4167,7 +4267,7 @@ body {
 
 /* 她不是她页面样式 */
 #sheIsNotSheSection {
-    background-image: url('../assets/chapter2（她不是她）.png');
+    background-image: url('../assets/chapter2（final）.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -4175,55 +4275,44 @@ body {
 
 
 
-/* 她不是她页面文本框样式 */
-.she-text-box {
+/* 技术局限性图片样式 - 左下角 */
+.tech-limitation-image {
     position: absolute;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    padding: 20px 30px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    bottom: 5%;
+    left: 5%;
+    width: 35%;
+    max-width: 500px;
+    height: auto;
     z-index: 10;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 1s ease;
+    object-fit: contain;
 }
 
-.she-text-box p {
-    font-family: 'SimSun', '宋体', serif;
-    font-size: 55px;
-    font-weight: bold;
-    color: #333;
-    margin: 0;
-    text-align: center;
-    white-space: nowrap;
+/* 她不是她页面的Flourish图表样式 - 右上角 */
+.she-chart {
+    position: absolute;
+    top: 8%;
+    right: 5%;
+    width: 30%;
+    max-width: 450px;
+    height: 40vh;
+    max-height: 400px;
+    z-index: 10;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: transparent !important;
+    border: none !important;
+    overflow: visible !important;
 }
 
-/* 第一个文本框位置 - 右上角 */
-.she-text-box-1 {
-    top: 15%;
-    left: 10%;
-}
-
-/* 第二个文本框位置 - 左下角 */
-.she-text-box-2 {
-    bottom: 12%;
-    right: 12%;
-}
-
-/* 文本框浮现效果 */
-#sheIsNotSheSection.in-view .she-text-box-1 {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.3s;
-}
-
-#sheIsNotSheSection.in-view .she-text-box-2 {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.6s;
+.she-chart iframe {
+    width: 100%;
+    height: 100%;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
 }
 
 #customCoverSection3 {
@@ -4242,18 +4331,19 @@ body {
     height: 70vh;
     max-height: 600px;
     z-index: 10;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-radius: 0 !important;
+    padding: 0;
+    box-shadow: none !important;
 }
 
 #customCoverSection3 .flourish-embed iframe {
     width: 100%;
     height: 100%;
-    border: none;
-    border-radius: 10px;
+    border: none !important;
+    border-radius: 0 !important;
 }
 
 /* 矢量图背景样式 */
@@ -4277,6 +4367,27 @@ body {
     margin-top: -55%; /* 往上移动 */
     transform: rotate(5deg); /* 顺时针倾斜5度 */
     transform-origin: center center; /* 以中心为旋转基准点 */
+}
+
+/* 自定义封面页面3的左下角文字样式 */
+.custom-section3-text {
+    position: absolute;
+    bottom: 8%;
+    left: 5%;
+    max-width: 50%;
+    font-size: 24px;
+    line-height: 2;
+    color: #1a1a1a;
+    font-weight: 900;
+    z-index: 20;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 文字浮现效果 */
+#customCoverSection3.in-view .custom-section3-text {
+    opacity: 1;
 }
 
 #chapter3CustomCoverSection1 {
@@ -5775,19 +5886,20 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 50px;
     padding: 0;           /* 移除内边距，让背景图片完全显示 */
     background: transparent; /* 移除默认背景色 */
 }
 
 /* Flourish iframe样式 */
 .custom-cover-section .flourish-embed {
-    width: 100%;
-    max-width: 900px;
-    height: 600px;
+    width: 30%;
+    max-width: 300px;
+    height: 250px;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    overflow: hidden;
-    transform: translateX(300px); /* 整体向右移动更多距离 */
+    overflow: visible;
+    transform: none;
 }
 
 /* 确保iframe内容正常显示 */
@@ -5798,7 +5910,13 @@ body {
     border-radius: 12px;
 }
 
-
+/* 新添加的雷达图样式 */
+.radar-chart-additional {
+    width: 30% !important;
+    max-width: 300px !important;
+    height: 250px !important;
+    transform: none !important;
+}
 
 /* 响应式设计 */
 @media (max-width: 768px) {

@@ -308,6 +308,20 @@ document.addEventListener('DOMContentLoaded', function () {
     if (el.chapter3PhotosSection) subtitleObserver.observe(el.chapter3PhotosSection);
     if (el.chapter4Section) subtitleObserver.observe(el.chapter4Section);
 
+    // 价格具体图浮现效果
+    const priceDetailImage = document.querySelector('.price-detail-image');
+    if (priceDetailImage) {
+        const priceImageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    console.log('价格具体图进入视口，开始浮现');
+                }
+            });
+        }, { threshold: 0.3 });
+        priceImageObserver.observe(priceDetailImage);
+    }
+
     // 技术解读页面图片切换功能
     let techCurrentIndex = 1;
     const techTotalSlides = 3;
@@ -945,6 +959,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else if (sectionId === 'sheIsNotSheSection') {
                     // 为她不是她页面添加动画效果
                     entry.target.classList.add('in-view');
+                } else if (sectionId === 'customCoverSection3') {
+                    // 为自定义封面页面3添加文字浮现效果
+                    entry.target.classList.add('in-view');
+                    console.log('customCoverSection3进入视口，文字开始浮现');
                 }
             } else {
                 // 页面离开视口后的处理
@@ -953,6 +971,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else if (entry.target.id === 'customBackgroundSectionNews') {
                     entry.target.classList.remove('in-view');
                 } else if (entry.target.id === 'sheIsNotSheSection') {
+                    entry.target.classList.remove('in-view');
+                } else if (entry.target.id === 'customCoverSection3') {
                     entry.target.classList.remove('in-view');
                 } else if (entry.target.id === 'chapter2TransitionSection') {
                     // 第二章节过渡页面的文本框一旦显示就保持，不隐藏
