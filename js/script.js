@@ -87,8 +87,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
            '#emotionTendencySection', // 添加情感倾向背景页面
            '#customCoverSection3', // 添加自定义封面页面3
-           '#chapter2TransitionSection',
            '#sheIsNotSheSection', // 添加她不是她页面
+           '#chapter2TransitionSection',
            '#chapter3Section',
            '#chapter3PhotosSection', // 添加第三幕照片展示区
            '#chapter3CustomBackgroundSection', // 添加第三幕自定义背景页面
@@ -1087,6 +1087,34 @@ document.addEventListener('DOMContentLoaded', function() {
                      // 页面进入视口，显示图片
                      customBackgroundSection.classList.add('in-view');
                      console.log('自定义背景页面进入视口，图片显示');
+                     
+                     // 依次显示三个态度分析文本框
+                     const attitudeBoxes = customBackgroundSection.querySelectorAll('.attitude-text-box');
+                     if (attitudeBoxes.length > 0) {
+                         // 第一个文本框立即显示
+                         setTimeout(() => {
+                             if (attitudeBoxes[0]) {
+                                 attitudeBoxes[0].classList.add('show');
+                                 console.log('第一个态度文本框显示');
+                             }
+                         }, 300);
+                         
+                         // 第二个文本框延迟显示
+                         setTimeout(() => {
+                             if (attitudeBoxes[1]) {
+                                 attitudeBoxes[1].classList.add('show');
+                                 console.log('第二个态度文本框显示');
+                             }
+                         }, 800);
+                         
+                         // 第三个文本框再延迟显示
+                         setTimeout(() => {
+                             if (attitudeBoxes[2]) {
+                                 attitudeBoxes[2].classList.add('show');
+                                 console.log('第三个态度文本框显示');
+                             }
+                         }, 1300);
+                     }
                  }
              });
          }, { threshold: 0.3 });
@@ -1707,17 +1735,21 @@ function initChapter3ChartSwitch() {
     let isTransitioning = false;
     
     console.log('图表切换功能初始化成功');
-    console.log('初始状态：显示map图表');
+    console.log('初始状态：显示词云图表');
     
-    // 确保初始状态正确
-    mapChart.style.display = 'block';
-    mapChart.style.opacity = '1';
-    wordCloudChart.style.display = 'none';
-    wordCloudChart.style.opacity = '0';
+    // 确保初始状态正确 - 初始显示词云图表
+    mapChart.style.display = 'none';
+    mapChart.style.opacity = '0';
+    wordCloudChart.style.display = 'block';
+    wordCloudChart.style.opacity = '1';
     
-    // 设置初始按钮状态
-    mapButton.classList.add('active');
-    wordCloudButton.classList.remove('active');
+    // 设置初始按钮状态 - 词云按钮为活跃状态
+    mapButton.classList.remove('active');
+    wordCloudButton.classList.add('active');
+    
+    // 设置初始背景为词云视图
+    section.classList.remove('map-view');
+    section.classList.add('wordcloud-view');
     
     // 监听地图按钮点击事件
     mapButton.addEventListener('click', function() {
@@ -1744,6 +1776,19 @@ function initChapter3ChartSwitch() {
     // 图表切换函数
     function switchToChart(showChart, hideChart, activeButton, inactiveButton) {
         isTransitioning = true;
+        
+        // 判断要切换到哪个图表，并切换对应的背景
+        if (showChart === mapChart) {
+            // 切换到地图视图，使用地图背景
+            section.classList.remove('wordcloud-view');
+            section.classList.add('map-view');
+            console.log('切换到地图背景');
+        } else if (showChart === wordCloudChart) {
+            // 切换到词云视图，使用词云背景
+            section.classList.remove('map-view');
+            section.classList.add('wordcloud-view');
+            console.log('切换到词云背景');
+        }
         
         // 隐藏当前图表
         hideChart.style.opacity = '0';
@@ -1910,6 +1955,58 @@ if (document.readyState === 'loading') {
     console.log('DOM已经准备好，立即初始化');
     initEndingInteraction();
 }
+
+// 强制设置Flourish图表透明背景
+function setFlourishTransparent() {
+    const sheChart = document.querySelector('.she-chart');
+    if (sheChart) {
+        // 监听iframe加载
+        const checkIframe = setInterval(() => {
+            const iframe = sheChart.querySelector('iframe');
+            if (iframe) {
+                // 为iframe添加透明背景样式
+                iframe.style.cssText += 'background: transparent !important; background-color: rgba(0,0,0,0) !important;';
+                
+                // 尝试访问iframe内容（可能会因为跨域限制失败）
+                try {
+                    if (iframe.contentWindow && iframe.contentWindow.document) {
+                        const iframeDoc = iframe.contentWindow.document;
+                        const style = iframeDoc.createElement('style');
+                        style.textContent = `
+                            body, html, .flourish-container, .flourish-chart {
+                                background: transparent !important;
+                                background-color: transparent !important;
+                            }
+                            * {
+                                background-color: transparent !important;
+                            }
+                        `;
+                        iframeDoc.head.appendChild(style);
+                        iframeDoc.body.style.cssText = 'background: transparent !important;';
+                        iframeDoc.documentElement.style.cssText = 'background: transparent !important;';
+                    }
+                } catch (e) {
+                    console.log('无法访问iframe内容（跨域限制）');
+                }
+                
+                clearInterval(checkIframe);
+            }
+        }, 100);
+        
+        // 10秒后停止检查
+        setTimeout(() => clearInterval(checkIframe), 10000);
+    }
+}
+
+// 页面加载完成后执行
+window.addEventListener('load', () => {
+    setTimeout(setFlourishTransparent, 500);
+    setTimeout(setFlourishTransparent, 1500);
+    setTimeout(setFlourishTransparent, 3000);
+});
+
+// DOMContentLoaded时也执行一次
+document.addEventListener('DOMContentLoaded', setFlourishTransparent);
 
 
 

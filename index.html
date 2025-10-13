@@ -120,7 +120,7 @@
                 <!-- 第三个文本框（底部段落） -->
                 <div class="text-box text-box-3">
                     <p>“这一刻，我真正感受到了AI的意义</p>
-                    <p>————做这个视频完全是为了妈妈。”</p>
+                    <p>————它不仅是冰冷的代码，更能成为连接思念的桥梁”</p>
                 </div>
                 <div class="source-info">来源：https://finance.sina.com.cn/roll/2025-04-06/doc-inesewqw2626483.shtml </div>
             </div>
@@ -142,7 +142,7 @@
             
             <!-- 图恒宇语录文本框 -->
             <div class="quote-text-box quote-text-box-1">
-                <p>“我女儿走的那一刻，我就觉得人生的意义荡然无存，都不存在”</p>
+                <p>“我想要给丫丫一个完整的人生。”</p>
                 <p class="quote-author">——图恒宇</p>
             </div>
             
@@ -302,15 +302,15 @@
         
         <!-- 态度分析文本框 -->
         <div class="attitude-text-box attitude-text-box-1">
-            <p>消极态度：隐私问题，生死界限，社会道德</p>
+            <p>积极态度：情感慰藉，科技发展</p>
         </div>
         
         <div class="attitude-text-box attitude-text-box-2">
-            <p>中立态度：技术原理的可实现性</p>
+            <p>消极态度：隐私问题，生死界限，社会道德</p>
         </div>
         
         <div class="attitude-text-box attitude-text-box-3">
-            <p>积极态度：情感慰藉，科技发展</p>
+            <p>中立态度：技术原理的可实现性</p>
         </div>
         
 
@@ -356,6 +356,22 @@
         </div>
     </div>
 
+    <!-- 新增页面 - 她不是她 -->
+    <div class="custom-background-section" id="sheIsNotSheSection">
+        <div class="custom-content">
+            <!-- 左下角技术局限性图片 -->
+            <img src="assets/技术局限性.png" alt="技术局限性" class="tech-limitation-image">
+            
+            <!-- 右上角Flourish图表 -->
+            <div class="flourish-embed flourish-chart she-chart" data-src="visualisation/25597844" data-bg="transparent">
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+                <noscript>
+                    <img src="https://public.flourish.studio/visualisation/25597844/thumbnail" width="100%" alt="chart visualization" />
+                </noscript>
+            </div>
+        </div>
+    </div>
+    
     <!-- 第二章节过渡页面 -->
     <div class="transition-section" id="chapter2TransitionSection">
         <div class="transition-content">
@@ -380,22 +396,6 @@
                 <p>若有人收集了那一块块被替换下来的旧船板，又重新拼成了一艘船，那一艘才是真正的"特修斯号"？</p>
                 <p>海浪没有回答，海风也不回答。</p>
                 <p>它们只是继续拍打着岸边，好像在提醒人们：我们每个人，或许都是一艘缓缓更换零件的船。</p>
-            </div>
-        </div>
-    </div>
-    
-    <!-- 新增页面 - 她不是她 -->
-    <div class="custom-background-section" id="sheIsNotSheSection">
-        <div class="custom-content">
-            <!-- 左下角技术局限性图片 -->
-            <img src="assets/技术局限性.png" alt="技术局限性" class="tech-limitation-image">
-            
-            <!-- 右上角Flourish图表 -->
-            <div class="flourish-embed flourish-chart she-chart" data-src="visualisation/25597844">
-                <script src="https://public.flourish.studio/resources/embed.js"></script>
-                <noscript>
-                    <img src="https://public.flourish.studio/visualisation/25597844/thumbnail" width="100%" alt="chart visualization" />
-                </noscript>
             </div>
         </div>
     </div>
@@ -503,16 +503,16 @@
             </div>
         </div>
         
-        <!-- 初始显示的map图表 -->
-        <div class="flourish-embed flourish-map" id="mapChart" data-src="visualisation/24748836" style="width: 110vw; height: 90vh; max-width: 1400px; max-height: 900px;">
+        <!-- map图表 - 初始隐藏 -->
+        <div class="flourish-embed flourish-map" id="mapChart" data-src="visualisation/24748836" style="display: none; width: 65vw; height: 55vh; max-width: 900px; max-height: 550px;">
             <script src="https://public.flourish.studio/resources/embed.js"></script>
             <noscript>
                 <img src="https://public.flourish.studio/visualisation/24748836/thumbnail" width="100%" alt="map visualization" />
             </noscript>
         </div>
         
-        <!-- 点击后显示的word-cloud图表 -->
-        <div class="flourish-embed flourish-word-cloud" id="wordCloudChart" data-src="visualisation/24729455" style="display: none; width: 110vw; height: 90vh; max-width: 1400px; max-height: 900px;">
+        <!-- word-cloud图表 - 初始显示 -->
+        <div class="flourish-embed flourish-word-cloud" id="wordCloudChart" data-src="visualisation/24729455" style="width: 65vw; height: 55vh; max-width: 900px; max-height: 550px;">
             <script src="https://public.flourish.studio/resources/embed.js"></script>
             <noscript>
                 <img src="https://public.flourish.studio/visualisation/24729455/thumbnail" width="100%" alt="word-cloud visualization" />
@@ -535,6 +535,11 @@
         <!-- 第二个文本框 -->
         <div class="chapter3-text-box chapter3-text-box-2">
             <p>"对逝者肖像的使用，<br>如果给其近亲属带来了精神痛苦，亲属可以基于精神损害赔偿提出相应的诉讼。"<br>——中国政法大学教授罗翔</p>
+        </div>
+        
+        <!-- 总结性文本框 - 延迟浮现 -->
+        <div class="chapter3-summary-box">
+            <p>总体而言，全球在"数字生命"和"脑机接口技术"方面的立法尚处于早期探索阶段，多数国家采取审慎开放的态度，既鼓励技术发展，又强调伦理和法律的约束。随着技术的不断进步，未来可能会出现更多专门立法，以应对由此带来的法律、伦理和社会挑战。</p>
         </div>
     </div>
 

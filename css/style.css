@@ -2918,7 +2918,7 @@ body {
 .text-box-3 {
     top: 72%; 
     left: 25%;
-    width: 650px; 
+    width: 900px; 
     height: 140px;
 }
 
@@ -3525,27 +3525,36 @@ body {
     font-family: 'KaiTi', '楷体', serif;
     font-weight: bold;
     white-space: nowrap;
-    opacity: 1;
-    transform: none;
+    /* 初始隐藏状态 */
+    opacity: 0;
+    transform: translateY(30px);
     display: inline-block;
+    /* 过渡动画 */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* 文本框显示状态 */
+.attitude-text-box.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* 第一个文本框 - 消极态度 - 左上位置 */
 .attitude-text-box-1 {
-    top: 40%;
-    left: 2%;
+    top: 35%;
+    left: 0%;
 }
 
 /* 第二个文本框 - 中立态度 - 右上位置 */
 .attitude-text-box-2 {
     top: 30%;
-    right: 15%;
+    right: 5%;
 }
 
 /* 第三个文本框 - 积极态度 - 右下位置 */
 .attitude-text-box-3 {
     bottom: 20%;
-    right: 15%;
+    right: 10%;
 }
 
 /* 态度分析文本框位置调整 */
@@ -3682,25 +3691,31 @@ body {
 /* 第三幕自定义封面页面1中的Flourish图表样式 */
 #chapter3CustomCoverSection1 .flourish-embed {
     position: absolute;
-    top: 55%;
-    left: 50%;
+    top:40%;
+    left: 28%; /* 向右移动 */
     transform: translate(-50%, -50%) !important; /* 使用!important覆盖通用样式 */
-    width: 110vw;
-    height: 90vh;
+    width: 65vw; /* 进一步缩小宽度 */
+    height: 55vh; /* 进一步缩小高度 */
     z-index: 10;
-    max-width: 1400px;
-    max-height: 900px;
+    max-width: 900px; /* 调整最大宽度 */
+    max-height: 550px; /* 调整最大高度 */
     transition: opacity 0.8s ease;
     opacity: 1;
 }
 
-/* 第二个图表的初始状态 */
+/* 地图图表的初始状态 - 隐藏 */
 #chapter3CustomCoverSection1 #mapChart {
     opacity: 0;
     display: none;
 }
 
-/* 第三个图表的初始状态 */
+/* 词云图表的初始状态 - 显示 */
+#chapter3CustomCoverSection1 #wordCloudChart {
+    opacity: 1;
+    display: block;
+}
+
+/* pictogram图表的初始状态 */
 #chapter3CustomCoverSection1 #pictogramChart {
     opacity: 0;
     display: none;
@@ -3708,10 +3723,10 @@ body {
 
 /* 监管看法图的特殊尺寸调整 */
 #chapter3CustomCoverSection1 #pictogramChart {
-    width: 110vw !important;
-    height: 90vh !important;
-    max-width: 1400px !important;
-    max-height: 900px !important;
+    width: 65vw !important;
+    height: 55vh !important;
+    max-width: 900px !important;
+    max-height: 550px !important;
 }
 
 /* 确保两个图表都能正常显示 */
@@ -4290,7 +4305,7 @@ body {
 /* 她不是她页面的Flourish图表样式 - 右上角 */
 .she-chart {
     position: absolute;
-    top: 8%;
+    top: 0%;
     right: 5%;
     width: 30%;
     max-width: 450px;
@@ -4304,6 +4319,8 @@ body {
     background: transparent !important;
     border: none !important;
     overflow: visible !important;
+    /* 尝试混合模式去除白色背景 */
+    isolation: isolate;
 }
 
 .she-chart iframe {
@@ -4313,6 +4330,24 @@ body {
     border-radius: 0 !important;
     box-shadow: none !important;
     background: transparent !important;
+    background-color: transparent !important;
+    /* 尝试使用混合模式去除白色背景 */
+    mix-blend-mode: multiply;
+    opacity: 1;
+}
+
+/* 强制Flourish图表内部元素背景透明 */
+.she-chart .flourish-embed,
+.she-chart .flourish-embed > *,
+.she-chart iframe body,
+.she-chart iframe html {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* 如果multiply模式效果不好，可以尝试darken */
+.she-chart iframe[data-blend="darken"] {
+    mix-blend-mode: darken !important;
 }
 
 #customCoverSection3 {
@@ -4391,8 +4426,23 @@ body {
 }
 
 #chapter3CustomCoverSection1 {
-    background-image: url('../assets/chapter3（世界法律背景图）.png');
     background-size: 100% 100%; /* 确保完全覆盖 */
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* 默认使用词云背景 */
+    background-image: url('../assets/chapter3（公众意愿图）.png');
+    /* 添加过渡效果 */
+    transition: background-image 0.5s ease-in-out;
+}
+
+/* 地图视图背景 */
+#chapter3CustomCoverSection1.map-view {
+    background-image: url('../assets/chapter3（世界法律背景图-新）.png');
+}
+
+/* 词云视图背景 */
+#chapter3CustomCoverSection1.wordcloud-view {
+    background-image: url('../assets/chapter3（公众意愿图）.png');
 }
 
 #chapter3CustomCoverSection2 {
@@ -6326,6 +6376,45 @@ body {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 0.6s;
+}
+
+/* 总结性文本框样式 - 长条状白色背景 */
+.chapter3-summary-box {
+    position: absolute;
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%) translateY(30px);
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 25px 40px;
+    border-radius: 20px;
+    font-family: 'KaiTi', '楷体', serif;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1.8;
+    color: #333;
+    width: 80%;
+    max-width: 1100px;
+    min-width: 800px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    z-index: 25;
+    opacity: 0;
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.chapter3-summary-box p {
+    margin: 0;
+    text-align: justify;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* 延迟显示效果 */
+#chapter3CustomCoverSection2.in-view .chapter3-summary-box {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    transition-delay: 1.5s;
 }
 
 /* 新增的横着文本框样式 */
