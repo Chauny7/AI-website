@@ -3650,7 +3650,7 @@ body {
 /* 第三幕自定义封面页面3中的Flourish象形图样式 */
 #chapter3CustomCoverSection3 .flourish-embed {
     position: absolute;
-    top: 50%;
+    top: 42%;
     transform: translateY(-50%); /* 只垂直居中，不水平居中 */
     width: 40vw; /* 缩小到视口宽度的40% */
     height: 60vh; /* 缩小到视口高度的60% */
@@ -4148,7 +4148,7 @@ body {
     position: absolute;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
-    padding: 15px 70px;
+    padding: 20px 40px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -4157,33 +4157,31 @@ body {
     opacity: 0;
     transform: translateY(30px);
     transition: all 1s ease;
-    max-width: 600px;
-    min-width: 400px;
+    max-width: 550px;
+    min-width: 320px;
 }
 
 .quote-text-box p {
     font-family: 'KaiTi', '楷体', serif;
-    font-size: 36px;
+    font-size: 28px;
     font-weight: bold;
     color: #333;
-    margin: 8px 0;
-    text-align: center;
-    line-height: 1.4;
+    margin: 5px 0;
+    text-align: left;
+    line-height: 1.5;
 }
 
 .quote-author {
-    font-size: 32px !important;
+    font-size: 22px !important;
     color: #666 !important;
-    margin-top: 15px !important;
+    margin-top: 12px !important;
     text-align: right !important;
 }
 
 /* 第一个文本框位置 - 右下角 */
 .quote-text-box-1 {
-    bottom: 15%;
-    right: 10%;
-    max-width: 700px;
-    min-width: 500px;
+    bottom: 12%;
+    right: 8%;
 }
 
 /* 第二个文本框位置 - 左下角 */
@@ -4293,8 +4291,8 @@ body {
 /* 技术局限性图片样式 - 左下角 */
 .tech-limitation-image {
     position: absolute;
-    bottom: 5%;
-    left: 5%;
+    bottom: 9%;
+    left: 3%;
     width: 35%;
     max-width: 500px;
     height: auto;
@@ -6414,7 +6412,7 @@ body {
 #chapter3CustomCoverSection2.in-view .chapter3-summary-box {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
-    transition-delay: 1.5s;
+    transition-delay: 2.5s;
 }
 
 /* 新增的横着文本框样式 */
