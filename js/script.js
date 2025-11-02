@@ -1872,6 +1872,15 @@ function initEndingInteraction() {
         
         console.log('Ending按钮被点击，开始照片消失和背景切换动画');
         
+        // 播放背景音乐
+        const endingBGM = document.getElementById('endingBGM');
+        if (endingBGM) {
+            endingBGM.play().catch(error => {
+                console.log('音频播放失败:', error);
+            });
+            console.log('开始播放背景音乐');
+        }
+        
         // 标记正在过渡中
         endingButton.classList.add('transitioning');
         
@@ -1932,11 +1941,93 @@ function initEndingInteraction() {
     console.log('按钮位置:', endingButton.getBoundingClientRect());
 }
 
+// Hero页面自动播放背景音乐
+function initHeroBGM() {
+    const heroSection = document.getElementById('hero');
+    const heroBGM = document.getElementById('heroBGM');
+    
+    if (!heroSection || !heroBGM) {
+        console.log('Hero页面或音频元素未找到');
+        return;
+    }
+    
+    // 创建Intersection Observer监听hero页面
+    const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // 页面进入视口，开始播放音乐
+                heroBGM.play().catch(error => {
+                    console.log('音频播放失败:', error);
+                    // 如果自动播放失败，尝试用户交互后播放
+                    document.addEventListener('click', function playOnClick() {
+                        heroBGM.play().catch(() => {});
+                        document.removeEventListener('click', playOnClick);
+                    }, { once: true });
+                });
+                console.log('Hero页面进入视口，开始播放背景音乐');
+            } else {
+                // 页面离开视口，停止播放音乐
+                heroBGM.pause();
+                console.log('Hero页面离开视口，停止播放背景音乐');
+            }
+        });
+    }, {
+        threshold: 0.3 // 当页面30%进入视口时触发
+    });
+    
+    heroObserver.observe(heroSection);
+    console.log('Hero页面背景音乐监听器已设置');
+}
+
+// Chapter1页面自动播放背景音乐
+function initChapter1BGM() {
+    const chapter1Section = document.getElementById('chapter1Section');
+    const chapter1BGM = document.getElementById('chapter1BGM');
+    
+    if (!chapter1Section || !chapter1BGM) {
+        console.log('Chapter1页面或音频元素未找到');
+        return;
+    }
+    
+    // 创建Intersection Observer监听chapter1页面
+    const chapter1Observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // 页面进入视口，开始播放音乐
+                chapter1BGM.play().catch(error => {
+                    console.log('Chapter1音频播放失败:', error);
+                    // 如果自动播放失败，尝试用户交互后播放
+                    document.addEventListener('click', function playOnClick() {
+                        chapter1BGM.play().catch(() => {});
+                        document.removeEventListener('click', playOnClick);
+                    }, { once: true });
+                });
+                console.log('Chapter1页面进入视口，开始播放背景音乐');
+            } else {
+                // 页面离开视口，停止播放音乐
+                chapter1BGM.pause();
+                console.log('Chapter1页面离开视口，停止播放背景音乐');
+            }
+        });
+    }, {
+        threshold: 0.3 // 当页面30%进入视口时触发
+    });
+    
+    chapter1Observer.observe(chapter1Section);
+    console.log('Chapter1页面背景音乐监听器已设置');
+}
+
 // 页面加载完成后初始化Ending页面交互功能
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM加载完成，开始初始化Ending页面交互功能');
     setTimeout(() => {
         initEndingInteraction();
+    }, 500);
+    
+    // 初始化Hero页面背景音乐自动播放
+    setTimeout(() => {
+        initHeroBGM();
+        initChapter1BGM(); // 初始化Chapter1页面背景音乐自动播放
     }, 500);
 });
 
@@ -1945,6 +2036,12 @@ window.addEventListener('load', function() {
     console.log('页面完全加载完成，再次尝试初始化Ending页面交互功能');
     setTimeout(() => {
         initEndingInteraction();
+    }, 100);
+    
+    // 初始化Hero页面背景音乐自动播放
+    setTimeout(() => {
+        initHeroBGM();
+        initChapter1BGM(); // 初始化Chapter1页面背景音乐自动播放
     }, 100);
 });
 

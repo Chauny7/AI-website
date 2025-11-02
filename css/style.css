@@ -6713,3 +6713,736 @@ body {
         margin-top: 30px;
     }
 }
+
+/* ==================== 移动端全面适配 ==================== */
+
+/* 移动端导航栏优化 */
+@media (max-width: 768px) {
+    .quick-nav {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 15px;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
+        border-radius: 25px;
+        max-width: 95vw;
+        z-index: 9999;
+    }
+    
+    .quick-nav a {
+        font-size: 14px;
+        padding: 5px 12px;
+        white-space: nowrap;
+    }
+    
+    .nav-separator {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .quick-nav {
+        top: 10px;
+        gap: 6px;
+        padding: 8px 10px;
+    }
+    
+    .quick-nav a {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+}
+
+/* 移动端英雄区域优化 */
+@media (max-width: 768px) {
+    .hero-section {
+        background-attachment: scroll;
+    }
+    
+    .hero-section.changed {
+        background-attachment: scroll;
+    }
+    
+    .start-btn {
+        padding: 12px 30px;
+        font-size: 1.2rem;
+        transform: translate(0, 50px);
+    }
+}
+
+@media (max-width: 480px) {
+    .start-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+        transform: translate(0, 40px);
+    }
+}
+
+/* 移动端封面区域优化 */
+@media (max-width: 768px) {
+    .fullscreen-cover {
+        padding: 20px;
+    }
+    
+    .cover-title {
+        font-size: 2rem !important;
+        line-height: 1.3;
+        padding: 0 10px;
+    }
+    
+    .cover-subtitle {
+        font-size: 1rem !important;
+        margin-top: 15px;
+    }
+    
+    .cover-image {
+        object-fit: cover;
+    }
+}
+
+/* 移动端全屏垂直画廊优化 */
+@media (max-width: 768px) {
+    .fullscreen-vertical-gallery {
+        height: 100vh;
+    }
+    
+    .vertical-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+/* 移动端图片指示器优化 */
+@media (max-width: 768px) {
+    .image-indicators {
+        bottom: 20px;
+        gap: 8px;
+    }
+    
+    .image-indicators .indicator {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* 移动端动态字幕优化 */
+@media (max-width: 768px) {
+    .dynamic-subtitle {
+        bottom: 60px;
+        left: 15px;
+        right: 15px;
+    }
+    
+    .dynamic-subtitle .subtitle-text {
+        font-size: 16px;
+        padding: 12px 18px;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 480px) {
+    .dynamic-subtitle .subtitle-text {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
+
+/* 移动端技术解读区域优化 */
+@media (max-width: 768px) {
+    .tech-interpretation-section {
+        padding: 20px 15px;
+        min-height: auto;
+    }
+    
+    .tech-interpretation-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .tech-images-container {
+        width: 100%;
+        height: 40vh;
+        min-height: 300px;
+    }
+    
+    .tech-buttons-container {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    .tech-button {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .tech-button img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-button {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .tech-images-container {
+        height: 35vh;
+        min-height: 250px;
+    }
+}
+
+/* 移动端文本框优化 */
+@media (max-width: 768px) {
+    .text-box {
+        padding: 15px 20px;
+        font-size: 16px;
+        line-height: 1.8;
+        max-width: 95%;
+        margin: 15px auto;
+    }
+    
+    .transition-section .text-box {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-box {
+        padding: 12px 15px;
+        font-size: 14px;
+        max-width: 95%;
+    }
+}
+
+/* 移动端新闻页面优化 */
+@media (max-width: 768px) {
+    .news-section {
+        min-height: 100vh;
+        padding: 20px 15px;
+    }
+    
+    .news-bg-image {
+        object-fit: cover;
+    }
+    
+    .news-vector-image {
+        width: 60px;
+        height: 60px;
+        bottom: 30px;
+        right: 20px;
+    }
+    
+    .floating-news-image {
+        width: 70vw;
+        max-width: 400px;
+    }
+    
+    .quote-text-box {
+        left: 15px;
+        right: 15px;
+        padding: 15px;
+        font-size: 16px;
+    }
+    
+    .quote-author {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .news-vector-image {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .floating-news-image {
+        width: 80vw;
+    }
+    
+    .quote-text-box {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+
+/* 移动端图表容器优化 */
+@media (max-width: 768px) {
+    .black-background-section,
+    .custom-background-section,
+    .custom-cover-section {
+        padding: 20px 10px;
+        min-height: 100vh;
+    }
+    
+    .flourish-embed {
+        width: 100% !important;
+        height: 50vh !important;
+        min-height: 300px;
+    }
+    
+    .chart-image-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .map-chart-container {
+        position: relative;
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .bubble-chart-below {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flourish-embed {
+        height: 40vh !important;
+        min-height: 250px;
+    }
+}
+
+/* 移动端第三章节照片优化 */
+@media (max-width: 768px) {
+    .chapter3-photos-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 40px 20px;
+    }
+    
+    .photo-with-text {
+        width: 80%;
+        max-width: 400px;
+    }
+    
+    .chapter3-photo {
+        width: 100%;
+        height: auto;
+    }
+    
+    .photo-bottom-text {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+    
+    .photo-tip {
+        top: 20px;
+        right: 20px;
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-with-text {
+        width: 90%;
+    }
+    
+    .photo-tip {
+        font-size: 12px;
+        padding: 6px 12px;
+        top: 15px;
+        right: 15px;
+    }
+}
+
+/* 移动端Coco/乔/高页面优化 */
+@media (max-width: 768px) {
+    .coco-page {
+        padding: 20px 15px;
+    }
+    
+    .back-button {
+        top: 15px;
+        left: 15px;
+        padding: 8px 15px;
+        font-size: 16px;
+    }
+    
+    .coco-photo {
+        width: 70vw;
+        max-width: 400px;
+        margin: 60px auto 30px;
+    }
+    
+    .coco-text-container {
+        gap: 20px;
+        padding: 0 10px;
+    }
+    
+    .coco-text-container .text-box {
+        font-size: 15px;
+        padding: 15px;
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .coco-photo {
+        width: 80vw;
+        margin: 50px auto 20px;
+    }
+    
+    .coco-text-container .text-box {
+        font-size: 13px;
+        padding: 12px;
+    }
+    
+    .back-button {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+
+/* 移动端制作团队页面优化 */
+@media (max-width: 768px) {
+    .staff-page {
+        padding: 60px 20px 40px;
+    }
+    
+    .staff-title h1 {
+        font-size: 2rem;
+    }
+    
+    .staff-content {
+        padding: 0 10px;
+    }
+    
+    .credit-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .credit-item .role {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    
+    .credit-item .name {
+        font-size: 16px;
+    }
+    
+    .staff-section h2 {
+        font-size: 1.5rem;
+        margin: 30px 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .staff-title h1 {
+        font-size: 1.5rem;
+    }
+    
+    .staff-section h2 {
+        font-size: 1.2rem;
+    }
+    
+    .credit-item .name {
+        font-size: 14px;
+    }
+    
+    .credit-item .role {
+        font-size: 12px;
+    }
+}
+
+/* 移动端Ending页面优化 */
+@media (max-width: 768px) {
+    .ending-section {
+        padding: 20px 15px;
+    }
+    
+    .ending-button {
+        font-size: 1.5rem;
+        padding: 15px 30px;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .ending-photos-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 20px 10px;
+        margin-bottom: 100px;
+    }
+    
+    .ending-photo {
+        width: 100%;
+    }
+    
+    .ending-photo img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .ending-button {
+        font-size: 1.2rem;
+        padding: 12px 25px;
+        bottom: 20px;
+    }
+    
+    .ending-photos-container {
+        gap: 10px;
+        padding: 15px 5px;
+    }
+}
+
+/* 移动端自定义背景页面优化 */
+@media (max-width: 768px) {
+    .custom-background-section .custom-content {
+        padding: 20px 15px;
+    }
+    
+    .news-text-box {
+        padding: 15px;
+        font-size: 15px;
+        margin: 15px 0;
+        max-width: 95%;
+    }
+    
+    .attitude-text-box {
+        padding: 12px 15px;
+        font-size: 14px;
+        max-width: 90%;
+    }
+    
+    .chapter3-text-box {
+        padding: 15px;
+        font-size: 14px;
+        max-width: 90%;
+        margin: 15px auto;
+    }
+    
+    .chapter3-summary-box {
+        padding: 15px;
+        font-size: 14px;
+        max-width: 95%;
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .news-text-box,
+    .attitude-text-box,
+    .chapter3-text-box {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+    
+    .chapter3-summary-box {
+        font-size: 12px;
+        padding: 12px;
+    }
+}
+
+/* 移动端图表切换按钮优化 */
+@media (max-width: 768px) {
+    .chart-switch-buttons {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    
+    .chart-switch-button {
+        width: 150px;
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+    
+    #mapChart,
+    #wordCloudChart {
+        width: 95vw !important;
+        height: 50vh !important;
+        max-width: none !important;
+        max-height: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .chart-switch-button {
+        width: 120px;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    #mapChart,
+    #wordCloudChart {
+        height: 40vh !important;
+    }
+}
+
+/* 移动端价格背景页面优化 */
+@media (max-width: 768px) {
+    .price-detail-image {
+        max-width: 90%;
+        margin: 20px auto;
+    }
+}
+
+/* 移动端来源信息优化 */
+@media (max-width: 768px) {
+    .source-info,
+    .source-info-center,
+    .source-info-bubble {
+        font-size: 12px;
+        padding: 8px 12px;
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+    }
+}
+
+/* 移动端横排文本框优化 */
+@media (max-width: 768px) {
+    .horizontal-quote-box {
+        padding: 12px 15px;
+        font-size: 14px;
+        max-width: 85%;
+        bottom: 30px;
+    }
+    
+    .horizontal-quote-box .quote-author {
+        font-size: 12px;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .horizontal-quote-box {
+        font-size: 12px;
+        padding: 10px 12px;
+        max-width: 90%;
+        bottom: 20px;
+    }
+}
+
+/* 移动端触摸优化 */
+@media (max-width: 768px) {
+    /* 增加可点击区域 */
+    .interactive-button,
+    .tech-button,
+    .indicator,
+    .chart-switch-button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* 改善滚动体验 */
+    * {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* 禁用背景固定（移动端性能问题） */
+    .hero-section,
+    .hero-section.changed {
+        background-attachment: scroll;
+    }
+}
+
+/* 移动端自定义封面页面3优化 */
+@media (max-width: 768px) {
+    .custom-section3-text {
+        font-size: 14px;
+        padding: 15px;
+        max-width: 90%;
+        bottom: 20px;
+        left: 15px;
+        right: 15px;
+        line-height: 1.8;
+    }
+    
+    .vector-background-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .custom-section3-text {
+        font-size: 12px;
+        padding: 12px;
+    }
+}
+
+/* 移动端技术局限性图片优化 */
+@media (max-width: 768px) {
+    .tech-limitation-image {
+        width: 70vw;
+        max-width: 400px;
+        left: 15px;
+        bottom: 20px;
+    }
+    
+    .she-chart {
+        width: 90% !important;
+        height: 40vh !important;
+        right: 15px;
+        top: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-limitation-image {
+        width: 80vw;
+    }
+    
+    .she-chart {
+        width: 95% !important;
+        height: 35vh !important;
+        top: 60px;
+    }
+}
+
+/* 移动端雷达图优化 */
+@media (max-width: 768px) {
+    .radar-chart-additional {
+        width: 100% !important;
+        height: 50vh !important;
+        min-height: 300px;
+        margin: 20px 0;
+    }
+}
+
+/* 移动端通用优化 */
+@media (max-width: 768px) {
+    /* 防止水平滚动 */
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    /* 优化文字可读性 */
+    p, span, div {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* 优化图片显示 */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
